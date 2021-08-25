@@ -17,6 +17,7 @@ The reason I’m saying all this is I ran into few problems, four to be exact. Y
 - Common ground
 - Pi runs at 3.3v and Arduino at 5v
 - Few development tools run on the Pi Zero
+- [Updated Breadboard](https://www.thingiverse.com/thing:4896228)
 
 ## Setting up the Pi
 
@@ -45,6 +46,8 @@ export PATH=/home/pi/graalvm-ce-java16-21.1.0/bin:$PATH
 Ah, right, ARM-7 on a 32-bit OS. I’m beginning to see why not many developers use the Pi Zero. It may be small but it just doesn’t have the support the regular Pi has, and it’s a little low on CPU and Memory.
 
 Well, everyone programs the Pi with Python anyway, right?
+
+[Video](https://youtu.be/-BF6zZbBVFA)
 
 ## Unexpected Hardware: Arduino
 
@@ -243,7 +246,7 @@ Example: `python3 testpot.py 1 180`
 
 The first argument is the device, 1 is the servo motor, and 2 is the brushless motor. The servo motor has a value of 0--180. The brushless motor has a value of 1000--2000 where 1500 is stop and 2000 is full throttle forward.
 
-[Video]
+[Video](https://youtu.be/GUiLuG1Drjg)
 
 ## Conclusion
 
