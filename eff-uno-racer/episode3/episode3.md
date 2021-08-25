@@ -37,7 +37,7 @@ A: Yes! Maybe even a FUR3. It will also fork to be a FUR1b possibly with more RC
 
 Q: Who is sponsoring this awesome project?
 
-A: I'm glad you asked. Oracle Developer Relations have sponsored this project because Oracle has some amazing tech. Not only do they have the most robust operating system on the planet and the number one programming language (yeah, you heard me, Java rocks), and the fastest implementation of the JVM with GraalVM, but they have a really solid cloud solution https://www.oracle.com/cloud/free/?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074 that will be the backbone to this project.
+A: I'm glad you asked. Oracle Developer Relations have sponsored this project because Oracle has some amazing tech. Not only do they have the most robust operating system on the planet and the number one programming language (yeah, you heard me, Java rocks), and the fastest implementation of the JVM with GraalVM, but they have a really solid [cloud solution](https://www.oracle.com/cloud/free/?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074) that will be the backbone to this project.
 
 Q: I don't think you can pull off such a crazy project.
 
