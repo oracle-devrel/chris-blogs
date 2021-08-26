@@ -47,7 +47,7 @@ Ah, right, ARM-7 on a 32-bit OS. I’m beginning to see why not many developers 
 
 Well, everyone programs the Pi with Python anyway, right?
 
-[Video](https://youtu.be/-BF6zZbBVFA)
+[Video](https://youtu.be/9aLBQ6m8_kI)
 
 ## Unexpected Hardware: Arduino
 
@@ -246,7 +246,7 @@ Example: `python3 testpot.py 1 180`
 
 The first argument is the device, 1 is the servo motor, and 2 is the brushless motor. The servo motor has a value of 0--180. The brushless motor has a value of 1000--2000 where 1500 is stop and 2000 is full throttle forward.
 
-[Video](https://youtu.be/GUiLuG1Drjg)
+[Video](https://www.youtube.com/watch?v=0F65hw3ntPk)
 
 ## Conclusion
 
