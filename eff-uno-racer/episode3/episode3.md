@@ -25,6 +25,10 @@ The car is the first hurdle and arguably the most important because it is the ma
 
 So far process on #1 is going well. #2 is coming along. I'm building a custom PCB and hope to share more about that in a month or two. #3 and #4 have been prototyped but need a lot more work. I need to get a working car in the hands of some other engineers before much more work can be done here. What fun is doing something like this all by myself. I love collaboration. And if you have ideas or want to work on something, drop me a line!
 
+As the project proceeds I have to be pragmatic and create things that will save time later. There is always a trade off here of time spent now vs later. For example, during this weeks video I received some Protopasta filament, and they have amazing cardboard spool holders but they are a slightly different size than what my Ultimaker printer accepts. So I created a spool holder. [Download](https://www.thingiverse.com/thing:4942247) and print the spool holder or edit the 3D model.
+
+![Protopasta Spool Holder](spoolholder.png)
+
 ## Where to go From Here
 
 FUR1 will be as much LEGO (c) as possible so you can simply use your existing boxes of your favorite bricks layin' around or buy the specific pieces needed. Only a few interface parts for the RC parts and electronics will be made. Plans will be made available to make your own. All 3D models will be available on [Thingiverse](https://www.thingiverse.com/thing:4940804) and source code will be on [GitHub](https://github.com/oracle-devrel/eff-uno-racer) follow along on the various [blogs](https://chrisbensen.medium.com/), [YouTube](https://www.youtube.com/c/ChrisBensen), [Oracle Developer website](http://developer.oracle.com?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074), [Oracle Developers YouTube Channel](https://www.youtube.com/channel/UCdDhYMT2USoLdh4SZIsu_1g) and [Twitter](https://twitter.com/chrisbensen).
