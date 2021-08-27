@@ -208,7 +208,7 @@ Back to the Pi. I open two terminal windows on my desktop, create a directory ca
 > scp testservo.py pi@192.168.1.165:/home/pi
 ```
 
-Next, I open up an editor to the folder and create a file called `testpot.py` (I initially started working with a potentiometer and didn’t get around to renaming the file yet):
+Next, I open up an editor to the folder and create a file called [carpi.py](carpi.py) (I initially started working with a potentiometer and didn’t get around to renaming the file yet):
 
 ```python
 from smbus import SMBus
@@ -240,9 +240,9 @@ else:
 bus.close()
 ```
 
-Usage: `python3 testpot.py [device] [value]`  
+Usage: `python3 carpi.py [device] [value]`  
 
-Example: `python3 testpot.py 1 180`
+Example: `python3 carpi.py 1 180`
 
 The first argument is the device, 1 is the servo motor, and 2 is the brushless motor. The servo motor has a value of 0--180. The brushless motor has a value of 1000--2000 where 1500 is stop and 2000 is full throttle forward.
 
