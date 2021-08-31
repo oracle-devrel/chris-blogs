@@ -1,12 +1,12 @@
-# Episode 3 - Building the Race Car Frame
+# Episode 3 - Building a Race Car Frame out of a Toy
 
 By Chris Bensen
 
-![Model of Eff-Uno Racer](model.png)
+![CAD Model of Eff-Uno Racer](model.png)
 
 In my previous two episodes (links at the bottom of this article) I built a custom breadboard setup for a Raspberry Pi and Arduino. Although it can be used for any project, I 3D printed a pad of bricks and connected up an RC servo and DC brushless motor via and ESC for a very specific project: I'm building a race car!
 
-I apologize for not coming out and saying what I'm building, but rather presenting it in some sort of teaser clickbait fashion. I just wasn't ready to reveal it and my management wanted me to take you all on a journey through the process rather than just 6-months of working in a closet with a big reveal at the end. But now we're at the point in the process where it's time reveal a bit more. Think of it as getting all ya'll involved. 
+I apologize for not coming out and saying what I'm building, but rather presenting it in some sort of teaser clickbait fashion. I just wasn't ready to reveal it and my management wanted me to take you all on a journey through the process rather than just 6-months of working in a closet with a big reveal at the end. But now we're at the point in the process where it's time reveal a bit more. Think of it as getting all ya'll involved.
 
 I am building a cloud connected LEGO&copy; open wheel race car. That's a mouthful. I was calling it #CloudCar but that sounds too much like "clown car." I can't legally say some of these words, such as eff-uno, so let's call it the **Eff-Uno Racer**, or **FUR**. And because everything needs to have a version number, let's call it **FUR1**. Note that I had to add the 'R' to avoid the name sounding obscene.
 
@@ -22,7 +22,7 @@ I basing my project off the [LEGO&copy; Kit 8440](https://www.bricklink.com/cata
 1. The Cloud software - Using [Oracle Cloud](https://www.oracle.com/cloud/free/?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074)
 1. The Client software - TBD
 
-The car is the first hurdle, and arguably the most important because it is the main character in this series. Nobody would watch the cloud drive a car around if there was no car. So, first things first, I'm building a car. A really really cool car. A really good car. Not a hacked together junker. This is a fast race car! I am building a car that any of you can build yourself, as inexpensively as possible, with easy-to-follow directions. This is no simple feat. There are a few challenges I didn't foresee, like the custom paint job and a global supply chain that's in the toilet. It's difficult, but I'm up for a challenge. And this is a challenge! 
+The car is the first hurdle, and arguably the most important because it is the main character in this series. Nobody would watch the cloud drive a car around if there was no car. So, first things first, I'm building a car. A really really cool car. A really good car. Not a hacked together junker. This is a fast race car! I am building a car that any of you can build yourself, as inexpensively as possible, with easy-to-follow directions. This is no simple feat. There are a few challenges I didn't foresee, like the custom paint job and a global supply chain that's in the toilet. It's difficult, but I'm up for a challenge. And this is a challenge!
 
 And we've hardly discussed the software. There is a lot here so stay tuned!
 
@@ -36,7 +36,7 @@ As the project proceeds I have to be pragmatic and create things that will save 
 
 ## Where to go From Here
 
-FUR1 will be as much LEGO&copy; as possible so you can simply use your existing boxes of your favorite bricks layin' around or buy the specific pieces needed. Only a few interface parts for the RC parts and electronics will be made. Plans will be made available to make your own. All 3D models will be available on [Thingiverse](https://www.thingiverse.com/thing:4940804), source code will be on [GitHub](https://github.com/oracle-devrel/eff-uno-racer), and you can follow along on the my [blog](https://chrisbensen.medium.com/), [YouTube](https://www.youtube.com/c/ChrisBensen), [Oracle Developer website](http://developer.oracle.com?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074), [Oracle Developers YouTube Channel](https://www.youtube.com/channel/UCdDhYMT2USoLdh4SZIsu_1g) and [Twitter](https://twitter.com/chrisbensen).
+FUR1 will be as much LEGO&copy; as possible so you can simply use your existing boxes of your favorite bricks layin' around or buy the specific pieces needed. Only a few interface parts for the RC parts and electronics will be made. Plans will be made available to make your own. All 3D models will be available on [Thingiverse](https://www.thingiverse.com/thing:4940804), source code will be on [GitHub](https://github.com/oracle-devrel/eff-uno-racer), and you can follow along on the [Medium blog](https://chrisbensen.medium.com/), or [personal blog](https://chrisbensen.blogspot.com) [YouTube](https://www.youtube.com/c/ChrisBensen), [Oracle Developer website](http://developer.oracle.com?source=:ex:tb:::::&SC=:ex:tb:::::&pcode=WWMK210625P00074), [Oracle Developers YouTube Channel](https://www.youtube.com/channel/UCdDhYMT2USoLdh4SZIsu_1g) and [Twitter](https://twitter.com/chrisbensen).
 
 ## Q/A
 
@@ -54,7 +54,7 @@ A: I've done others that are arguably crazier. I built [The World's Largest Rasp
 
 Q: When can I expect to see more of this project?
 
-A: Twitter [https://twitter.com/chrisbensen](https://twitter.com/chrisbensen) has the most updates at the moment.
+A: Twitter [https://twitter.com/chrisbensen](https://twitter.com/chrisbensen) has the most updates at the moment. There is also a YouTube playist for [DevRebel Cool Projects](https://www.youtube.com/playlist?list=PLPIzp-E1msrZ0WAvm20TkXtm7Hm5JnHxc).
 
 ---
 
