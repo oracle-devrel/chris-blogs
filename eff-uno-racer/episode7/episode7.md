@@ -4,7 +4,7 @@ By Chris Bensen
 
 ![CAD Model of Eff-Uno Racer](carfront.png)
 
-NOTE: If you would prefer to read this on GitHub in markdown go [here](https://chrisbensen.medium.com/building-a-race-car-frame-out-of-a-toy-c7bec93e53b3).
+You can follow this project on GitHub [here](https://github.com/chrisbensen/eff-uno-racer).
 
 A few episodes have gone by without an accompanying blog. There has been a lot of CAD, 3D printing, Blender and other behind the scenes stuff that is frankly boring. Also I've broken things into bite sized chunks for "algorithm" purposes. But now there's quite a bit to talk about! I've been building a custom PCB Pi Hat! This is very exciting because who doesn't want to make a custom Pi Hat? I was just talking with a friend today and the first response was "you can do that?"
 
@@ -17,6 +17,11 @@ Speaking of Blender, I'm going to digress briefly, the video series has a new in
 The Pi Hat is a 100% custom PCB designed and speced by me. I'm getting some help by SQFMI with the detailed laying out the traces and heavy lifting. SQFMI and I have worked together building the Code Card and Code Watches which turned into Watchy in the past. The software I've used to design PCB boards is called Eagle. There is a Fusion 360 Eagle plugin but I have not used it.
 
 ![Pi Assembly](pi1.png)
+![Pi Assembly](pi2.png)
+
+I created a spacer 3D print available on Thingiverse [here](https://www.thingiverse.com/download:10394744). It has to be one of the simplest 3D prints there is, but it works great keeping the Pi and Hat separated. I've actually done this with a number of other Pi projects so this spacer is very useful!
+
+![Pi Hat Spacer](spacer.png)
 
 The first step was to prototype everything using breadboards. I documented this path in [Episode 1](https://youtu.be/-BF6zZbBVFA) and [Episode 2](https://youtu.be/9aLBQ6m8_kI). At the same time design the wiring diagram but at first it doesn't usually look this nice.
 
@@ -36,8 +41,6 @@ So once all the electronics are identified and a form factor start laying things
 
 You'll want to double check everything 2-3 times before ordering a PCB. If you want to checkout the GERBER file you can find them in the repository [here](https://github.com/chrisbensen/eff-uno-racer/tree/main/electronics/GERBER). You can even send it to OSH Park (or any other places that can make a PCB) to have it made or just poke around and look at them. If you want to have some made yourself it'll cost you about $26 USD and they produce 3 units.
 
-https://github.com/chrisbensen/eff-uno-racer
-
 The [BOM can be found here](https://github.com/oracle-devrel/eff-uno-racer/blob/main/parts/BOM.txt), but I've broken it out and listed the items that I used in this blog:
 
 - (1) Arduino Micro
@@ -49,9 +52,8 @@ https://www.sparkfun.com/products/17241
 - (1) Pololu D24V50F5 voltage regulator
 https://www.pololu.com/product/2851
 
-- (5) 10K resistor
-- (1) 220 resistor
-https://www.sparkfun.com/products/10969
+- (5) 10K resistor https://www.sparkfun.com/products/10969
+- (1) 220 resistor https://www.sparkfun.com/products/10969
 
 - (2) 10uF 16V capacitor
 https://www.amazon.com/Electrolytic-Capacitors-Capacitor-Conditioning-Refrigerator/dp/B08L5ZL87P
