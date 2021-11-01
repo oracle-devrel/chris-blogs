@@ -67,7 +67,7 @@ Communicating between an RPi and an Arduino on I2C is a bit of a mess if you are
 
 Here is the Arduino [carduino.ino](carduino.ino) sketch:
 
-```
+```cpp
 #include <Wire.h>
 #include <Servo.h>
 
