@@ -2,7 +2,7 @@
 
 By Chris Bensen
 
-If you prefer you can read this blog post on GitHub [here](TODO).
+If you prefer you can read this blog post on GitHub [here](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/FreeTier/FreeTier.md).
 
 
 Have you ever wanted to have a server running 24-7 for free! Sorry, that should have been a question. Have you ever wanted to have a server running 24-7 for free? What! Yes, you can setup a Linux server to run for free doing things. Yes things! It will do whatever you want. And it's free! What's the catch? Well, you have to sign up for it and then it takes some work to make it do a thing. But just the other day I shared a file with someone completely securely rather than send it over email. So come up with an idea and sign up for a free account by following these four steps:
