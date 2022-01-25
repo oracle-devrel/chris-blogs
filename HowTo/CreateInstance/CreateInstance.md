@@ -10,8 +10,6 @@ An Oracle Compute instance is a VM in the cloud you can use as a remote computer
 
 1. First create a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397), then come back here and continue these steps.
 
-1. I like to put my resources in Compartments. I suggest [creating a compartment](https://chrisbensen.medium.com/create-a-oracle-cloud-compartment-22b090100914), then come back here and continue these steps.
-
 1. Click the Cloud Shell icon in the upper right corner. This will open a preconfigured VM that you will use to access your instance. Cloud Shell has the OCI command line tools already configured. You can install these tools locally but this is an easy way to do it.
    ![](images/CloudShell.png)
 
@@ -31,7 +29,7 @@ An Oracle Compute instance is a VM in the cloud you can use as a remote computer
 1. Populate the name with **myvm** *NOTE* You can choose any name you want by replacing **myvm** with your name throughout this document.
    ![](images/ComputeFormCreate.png)
 
-1. Change the "Create in compartment" field to the compartment of your choosing. I'm choosing **test** Go here to learn how to [create a compartment](TODO).
+1. Change the "Create in compartment" field to the compartment of your choosing. I'm choosing **test** Go here to learn how to [create a compartment](https://chrisbensen.medium.com/create-a-oracle-cloud-compartment-22b090100914).
 
 1. Scroll down to Networking. In this example we will create a new Virtual Cloud Network (VCN). Change the compartment to the same as you choose above.
   ![](images/CreateComputeFormVCN.png)
