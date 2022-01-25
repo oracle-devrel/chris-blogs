@@ -2,13 +2,15 @@
 
 By Chris Bensen
 
-If you prefer you can read this blog post on GitHub [here](TODO).
+If you prefer you can read this blog post on GitHub [here](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/CreateInstance/CreateInstance.md).
 
 
 An Oracle Compute instance is a VM in the cloud you can use as a remote computer to do any task you can imagine; host a personal drop box, share files securily with friends, run a Mindcraft server, store weather data in a database, [remote control a car over the internet](TODO) the possibilities are endless:
 
 
-1. First create a [Free Tier Account](TODO), then come back here and continue these steps.
+1. First create a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397), then come back here and continue these steps.
+
+1. I like to put my resources in Compartments. I suggest [creating a compartment](https://chrisbensen.medium.com/create-a-oracle-cloud-compartment-22b090100914), then come back here and continue these steps.
 
 1. Click the Cloud Shell icon in the upper right corner. This will open a preconfigured VM that you will use to access your instance. Cloud Shell has the OCI command line tools already configured. You can install these tools locally but this is an easy way to do it.
    ![](images/CloudShell.png)
@@ -79,4 +81,4 @@ Keep this IP address handy, it will be referred to as **\<YourPublicIP>.**
 
 You now have a VM in the cloud with credentials to access that is always running and ready to setup with all your tools.
 
-This requires an Oracle Cloud account. You can get one for free called the [Free Tier Account](TODO).
+This requires an Oracle Cloud account. You can get one for free called the [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
