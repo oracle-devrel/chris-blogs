@@ -1,11 +1,11 @@
-## Create a Compute instance
+## Create an OCI Compute instance
 
 By Chris Bensen
 
 If you prefer you can read this blog post on GitHub [here](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/CreateInstance/CreateInstance.md).
 
 
-An Oracle Compute instance is a VM in the cloud you can use as a remote computer to do any task you can imagine; host a personal drop box, share files securily with friends, run a Mindcraft server, store weather data in a database, [remote control a car over the internet](TODO) the possibilities are endless:
+An Oracle Compute instance is a VM in the cloud you can use as a remote computer to do any task you can imagine; host a personal drop box, share files securily with friends, run a [Minecraft server](https://recursive.codes/blog/post/1946), store weather data in a database, [remote control a car over the internet](https://www.youtube.com/playlist?list=PLPIzp-E1msrZ0WAvm20TkXtm7Hm5JnHxc) the possibilities are endless:
 
 
 1. First create a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397), then come back here and continue these steps.
