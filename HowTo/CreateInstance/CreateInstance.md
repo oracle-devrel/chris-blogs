@@ -2,7 +2,7 @@
 
 By Chris Bensen
 
-If you prefer you can read this blog post on GitHub [here](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/CreateInstance/CreateInstance.md).
+If you prefer you can read this blog post on Medium [here](TODO).
 
 
 An Oracle Compute instance is a VM in the cloud you can use as a remote computer to do any task you can imagine; host a personal drop box, share files securily with friends, run a [Minecraft server](https://recursive.codes/blog/post/1946), store weather data in a database, [remote control a car over the internet](https://www.youtube.com/playlist?list=PLPIzp-E1msrZ0WAvm20TkXtm7Hm5JnHxc) the possibilities are endless:
