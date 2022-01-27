@@ -2,10 +2,10 @@
 
 By Chris Bensen
 
-If you prefer you can read this blog post on GitHub [here](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/CreateCompartment/CreateCompartment.md).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/create-a-oracle-cloud-compartment-22b090100914).
 
 
-A [Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm) is useful when you want to organize and isolate your cloud resources. This is the same reason you have boxes and drawers at home or carry things around in a backpack. Think of it like a Folder on your computer's file system.
+A [Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) is useful when you want to organize and isolate your cloud resources. This is the same reason you have boxes and drawers at home or carry things around in a backpack. Think of it like a Folder on your computer's file system.
 
 This requires an Oracle Cloud account. You can get one for free called the [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
 
