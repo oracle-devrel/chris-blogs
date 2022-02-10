@@ -4,9 +4,9 @@ By Chris Bensen
 
 If you prefer you can read this blog post on Medium [here](TODO).
 
+If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email)!
 
-This article may seem obvious to some but others need to know how to get started. If this is you
-Having a server running in the cloud 24-7 is great but chances are you actually want to do something with it. That's where the steps in this article come in.
+This article may seem obvious to some but others need to know how to get started. Having a server running in the cloud 24-7 is great but chances are you actually want to do something with it. That's where the steps in this article come in.
 
 ## Prerequisites
 
