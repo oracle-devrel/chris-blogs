@@ -1,4 +1,4 @@
-## Create an Oracle Always-Free Cloud Account
+# Create an Oracle Always-Free Cloud Account
 
 By Chris Bensen
 

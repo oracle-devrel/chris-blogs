@@ -1,4 +1,4 @@
-## Create an OCI Compute instance
+# Create an OCI Compute instance
 
 By Chris Bensen
 
