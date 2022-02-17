@@ -2,9 +2,11 @@
 
 By Chris Bensen
 
-If you prefer you can read this blog post on Medium [here](TODO).
+![](images/pexels-jan-kopÅiva-3281127.jpg)
 
-If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email)!
+If you prefer you can read this blog post on Medium [here](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2).
+
+If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our public!
 
 This article may seem obvious to some but others need to know how to get started. Having a server running in the cloud 24-7 is great but chances are you actually want to do something with it. That's where the steps in this article come in.
 
@@ -16,7 +18,7 @@ This article may seem obvious to some but others need to know how to get started
 
 1. You have [locked down ssh](https://chrisbensen.medium.com/white-list-your-ip-address-to-security-connect-to-an-oci-compute-instance-4fb99958f0d9) on your compute to only your computer.
 
-Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) and other [Oracle Cloud documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) [here](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034).
+Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) and other [Oracle Cloud documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) [here](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034). For interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
 
 ## Build a Web Server
 
@@ -36,11 +38,6 @@ Now, let's create the web server. We will live dangerously and open a port so an
 
 1. On the "Add Ingress Rules" dialog, set source CIDR "0.0.0.0/0" and set destination port range to "80":
   ![](images/AddRule1.png)
-
-1. Click "+Another Ingress Rule"
-
-1. For the second rule change the rule from TCP to UDP, set the source CIDR "0.0.0.0/0" and set destination port range to "80":
-  ![](images/AddRule2.png)
 
 1. The rules now look like this:
   ![](images/IngressRules2.png)
