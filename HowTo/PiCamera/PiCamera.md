@@ -151,4 +151,7 @@ Built in tools are fine but eventually we will want more control.
   sudo python3 stream.py
   ```
 
-1. At this point you can run VLC on your local machine and stream there, or you can follow the directions in Tim's article in the optional prerequisites above to setup Oracle Cloud to receive the stream.
+1. At this point you can run VLC on your local machine and stream there, or you can follow the directions in Tim's article in the optional prerequisites above to setup Oracle Cloud to receive the stream. To run VLC locally on a Mac for example run the following:
+  ```
+  /Applications/VLC.app/Contents/MacOS/VLC udp://@:<Port> :demux=h264
+  ```
