@@ -83,7 +83,7 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
   sudo reboot
   ```
 
-1. Setup the camera. Run the command:
+1. Setup the camera for H.264. Run the command:
   ```
   sudo pico /boot/config.txt
   ```
