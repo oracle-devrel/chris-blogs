@@ -148,7 +148,7 @@ Built in tools are fine but eventually we will want more control.
 
 1. Run the script:
   ```
-  python3 stream.py
+  sudo python3 stream.py
   ```
 
 1. At this point you can run VLC on your local machine and stream there, or you can follow the directions in Tim's article in the optional prerequisites above to setup Oracle Cloud to receive the stream.
