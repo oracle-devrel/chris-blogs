@@ -27,17 +27,40 @@ Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute
 
 ## Setup a Rasbperry Pi
 
-1. Setup an SD card with your favorite OS. Here's how you can [install Oracle Linux](https://geraldonit.com/2019/03/18/how-to-install-oracle-linux-on-raspberry-pi/) but Raspberry Pi OS is super easy to install with the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). Whichever OS you decided to use they will all work and there are reasons to use each one.
+1. Setup an SD card with your favorite OS. Here's how you can [install Oracle Linux](https://geraldonit.com/2019/03/18/how-to-install-oracle-linux-on-raspberry-pi/) but Raspberry Pi OS is super easy to install with the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). Whichever OS you decided to use they will all work and there are reasons to use each one. But note that there are some differences between the OS choices and the version of your Raspberry Pi where some things work and some do not. I will do my best to note where this is the case but I do not have an all inclusive list. Below is a list that I have compiled to help clear up the choices.
+
+## Knowlege
+
+***Bullseye***: This is the latest Raspberry Pi OS.
+***Buster***:  This is the previous Raspberry Pi OS.
+
+By default the Pi is setup to use the legacy camera stack. This gets complicated real fast so I'll make it as easy as possible.
+
+  The Raspberry Pi kernel tree contains a number of Device Tree Overlays in the arch/arm/boot/dts/overlays folder.
+  Each overlay is stored in .dts file and gets compiled into a .dtbo file.
+  A .dtbo can be loaded from the config.txt file format:
+    ```
+    dtoverlay=overlay-name,overlay-arguments
+    ```
+  ``dtoverlay=vc4-fkms-v3d`` is for H.264.
+  ``dtoverlay=imx219`` is for Motion-MPEG.
+  Bullseye and Buster support H.264.
+  Bullseye and Buster support Motion-MPEG.
+  H.264 and Motion-MPEG are not supported at the same time.
+  Pi 3 and Pi 4 support H.264.
+  Pi Zero, Pi 3 and Pi 4 support and Motion-MPEG.
+
+  Please let me know if anything is wrong here so I can update it.
 
 ## Setup a Rasbperry Pi for Camera Streaming
 
-Now that you have an SD card with an OS let's set it up to start streaming some video to [Oracle Cloud](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034). These are the video formats that are supported:
+Now that you have an SD card with an OS let's set it up to start streaming some video to [Oracle Cloud](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034). These directions should work with Raspberry Pi OS and Oracle Linux using any Raspberry Pi. These are the video formats that are supported:
 
 ```
 v4l2-ctl --list-formats-ext
 ```
 
-We are going to use the two formats H.264 and Motion-JPEG. Both have their advantages, for now we will use H.264 but we we want to support both. So let's get some streaming setup.
+There are two video codecs we are interested in; H.264 and Motion-JPEG. Both have their advantages. For example H.264 has less support, it is not supported on Pi Zero because it uses more processor resources, but it uses less network bandwidth. For this article we will use H.264. So let's get some streaming setup.
 
 1. The first thing I do when I boot up a Pi is rename one audio file. When the Pi first boots up you will get an annoying "to install a screen reader press control alt space" if you have audio hooked up:
 
@@ -48,6 +71,16 @@ We are going to use the two formats H.264 and Motion-JPEG. Both have their advan
 1. Update the OS:
   ```
   sudo apt-get update -y && sudo apt-get upgrade -y
+  ```
+
+1. Turn on SPI and I2C. If using Buster, you can enable the Legacy Camera. This option is not available with Bullseye:
+  ```
+  sudo raspi-config
+  ```
+
+1. Reboot for all changes to take effect:
+  ```
+  sudo reboot
   ```
 
 1. Setup the camera. Run the command:
@@ -66,11 +99,6 @@ We are going to use the two formats H.264 and Motion-JPEG. Both have their advan
   [pi4]
   #dtoverlay=vc4-fkms-v3d
   dtoverlay=imx219
-  ```
-
-1. Turn on Legacy Camera, SPI and I2C:
-  ```
-  sudo raspi-config
   ```
 
 1. Reboot for all changes to take effect:
