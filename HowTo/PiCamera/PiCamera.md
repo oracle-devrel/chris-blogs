@@ -42,13 +42,14 @@ By default the Pi is setup to use the legacy camera stack. This gets complicated
     ```
     dtoverlay=overlay-name,overlay-arguments
     ```
-  ``dtoverlay=vc4-fkms-v3d`` is for H.264.
-  ``dtoverlay=imx219`` is for Motion-MPEG.
+  ``dtoverlay=vc4-fkms-v3d`` is for H.264 with V2 camera.
+  ``dtoverlay=imx219`` is for Motion-MPEG with V2 camera.
   Bullseye and Buster support H.264.
   Bullseye and Buster support Motion-MPEG.
   H.264 and Motion-MPEG are not supported at the same time.
   Pi 3 and Pi 4 support H.264.
   Pi Zero, Pi 3 and Pi 4 support and Motion-MPEG.
+  This is the best source for [information about the camers](https://www.raspberrypi.com/documentation/accessories/camera.html) I've found but it is still lacking.
 
   Please let me know if anything is wrong here so I can update it.
 
