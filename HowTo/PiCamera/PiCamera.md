@@ -39,6 +39,12 @@ v4l2-ctl --list-formats-ext
 
 We are going to use the two formats H.264 and Motion-JPEG. Both have their advantages, for now we will use H.264 but we we want to support both. So let's get some streaming setup.
 
+1. The first thing I do when I boot up a Pi is rename one audio file. When the Pi first boots up you will get an annoying "to install a screen reader press control alt space" if you have audio hooked up:
+
+  ```
+  sudo mv /usr/share/piwiz/srprompt.wav /usr/share/piwiz/srprompt.wav.old
+  ```
+
 1. Update the OS:
   ```
   sudo apt-get update -y && sudo apt-get upgrade -y
