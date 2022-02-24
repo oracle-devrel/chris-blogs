@@ -153,6 +153,7 @@ Built in tools are fine but eventually we will want more control.
       camera.start_recording(output, format="h264")
       camera.wait_recording(60)
       camera.stop_recording()
+      txSock.close()
   ```
 
 1. Run the script:
