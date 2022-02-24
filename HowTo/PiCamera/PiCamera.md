@@ -74,7 +74,7 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
   sudo apt-get update -y && sudo apt-get upgrade -y
   ```
 
-1. Turn on SPI and I2C. If using Buster, you can enable the Legacy Camera. This option is not available with Bullseye:
+1. Turn on SPI and I2C:
   ```
   sudo raspi-config
   ```
