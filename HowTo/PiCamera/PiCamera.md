@@ -135,25 +135,25 @@ Built in tools are fine but eventually we will want more control.
   address = ("<IpAddress>", <Port>)
 
   class H264Streamer():
-      def write(self, frame_data):
+      def write(self, frame):
           package_size = 1472
-          size = len(frame_data)
+          size = len(frame)
           num_is = int(size / package_size)
 
           if size % 1472 > 0:
               num_is = num_is + 1
 
           for i in range(num_is):
-              txSock.sendto(frame_data[i * package_size: (i+1) * package_size], address)
+              udp.sendto(frame[i * package_size: (i+1) * package_size], address)
 
-  txSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
   with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
       output = H264Streamer()
       camera.start_recording(output, format="h264")
       camera.wait_recording(60)
       camera.stop_recording()
-      txSock.close()
+      udp.close()
   ```
 
 1. Run the script:
