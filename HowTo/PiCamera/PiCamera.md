@@ -91,15 +91,18 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
 
   At the bottom of the file change the line:
   ```
-  [pi4]
   dtoverlay=vc4-fkms-v3d
   ```
 
   to:
   ```
-  [pi4]
   #dtoverlay=vc4-fkms-v3d
   dtoverlay=imx219
+  ```
+
+  Also make sure you have the following in config.txt:
+  ```
+  camera_auto_detect=1
   ```
 
 1. Reboot for all changes to take effect:
