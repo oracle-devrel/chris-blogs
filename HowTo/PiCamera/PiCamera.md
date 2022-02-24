@@ -140,7 +140,7 @@ Built in tools are fine but eventually we will want more control.
           size = len(frame)
           num_is = int(size / package_size)
 
-          if size % 1472 > 0:
+          if size % package_size > 0:
               num_is = num_is + 1
 
           for i in range(num_is):
