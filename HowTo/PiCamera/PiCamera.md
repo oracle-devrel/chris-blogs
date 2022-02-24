@@ -89,14 +89,19 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
   sudo pico /boot/config.txt
   ```
 
-  At the bottom of the file change the line:
+  At the bottom of the file find the line:
   ```
   dtoverlay=vc4-fkms-v3d
   ```
 
-  to:
+  and add below it:
   ```
-  #dtoverlay=vc4-fkms-v3d
+  dtoverlay=imx219
+  ```
+
+  So now it looks like this:
+  ```
+  dtoverlay=vc4-fkms-v3d
   dtoverlay=imx219
   ```
 
