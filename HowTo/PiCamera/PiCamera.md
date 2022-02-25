@@ -42,8 +42,8 @@ By default the Pi is setup to use the legacy camera stack. This gets complicated
     ```
     dtoverlay=overlay-name,overlay-arguments
     ```
-  ``dtoverlay=vc4-fkms-v3d`` is for H.264 with V2 camera.
-  ``dtoverlay=imx219`` is for Motion-MPEG with V2 camera.
+  ``dtoverlay=vc4-fkms-v3d`` is for display driver even on Pi 4 despite the docs saying it is only for Pi 3.
+  ``dtoverlay=imx219`` is for V2 camera but only works with Bullseye.
   Bullseye and Buster support H.264.
   Bullseye and Buster support Motion-MPEG.
   H.264 and Motion-MPEG are not supported at the same time.
@@ -118,47 +118,6 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
 1. Use built in tools to stream:
   ```
   libcamera-vid -t 0 --inline -o udp://<IpAddress>:<Port>
-  ```
-
-## Camera Streaming Python Script
-
-Built in tools are fine but eventually we will want more control.
-
-1. Let's write a little program so we have complete control:
-
-  stream.py
-  ```
-  import io
-  import picamera
-  import socket
-
-  address = ("<IpAddress>", <Port>)
-
-  class H264Streamer():
-      def write(self, frame):
-          package_size = 1472
-          size = len(frame)
-          num_is = int(size / package_size)
-
-          if size % package_size > 0:
-              num_is = num_is + 1
-
-          for i in range(num_is):
-              udp.sendto(frame[i * package_size: (i+1) * package_size], address)
-
-  udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
-  with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
-      output = H264Streamer()
-      camera.start_recording(output, format="h264")
-      camera.wait_recording(60)
-      camera.stop_recording()
-      udp.close()
-  ```
-
-1. Run the script:
-  ```
-  sudo python3 stream.py
   ```
 
 1. At this point you can run VLC on your local machine and stream there, or you can follow the directions in Tim's article in the optional prerequisites above to setup Oracle Cloud to receive the stream. To run VLC locally on a Mac for example run the following:
