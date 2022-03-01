@@ -126,3 +126,11 @@ There are two video codecs we are interested in; H.264 and Motion-JPEG. Both hav
   ```
   /Applications/VLC.app/Contents/MacOS/VLC udp://@:<Port> :demux=avformat
   ```
+
+There are a few problems with the directions above that I must point out. libcamera-vid will stream h264 (that is the default) which is great, however I don't know how anyone actually has tested this that has not rebuilt the kernel. The packets being sent are jumbo frames and by default the Pi OS is not setup with jumbo frames and there is no easy way to change this. See this artcle by Jeff Geerling [Setting 9000 MTU (Jumbo Frames) on Raspberry Pi OS](https://www.jeffgeerling.com/blog/2020/setting-9000-mtu-jumbo-frames-on-raspberry-pi-os). Jumbo frames will also need to be enabled on the receiving computer.
+
+![](images/vlclinuxsettings.png)
+
+The second problem is VLC on MacOS doesn't work very well. What I have above will work but it will be delayed. By about a 1000ms to be exact. VLC on Linux and Windows however has an option for this. When you go to File | Open Media and choose the Network tab, choose udp://@:<Port>, click the "Show more options" check box at the bottom and change Caching from "1000ms" to "0ms".
+
+There are other options, TCP and the legacy camera system for example. The Pi camera is an amazing piece of hardware and software but things are in a state of change between the legacy camera and the new camera to a point where it is difficult to use. To confuse things there are years of examples using Python2 and the legacy camera system. Hopefully this article helps cut through some of the confusion and future articles will help as well. Stay tuned...
