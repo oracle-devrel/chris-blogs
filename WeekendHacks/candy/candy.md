@@ -2,7 +2,7 @@
 
 ![Dispenser in Action](images/thumbnail.jpg)
 
-https://github.com/chrisbensen/weekend-hacks/candy
+If you prefer you can read this blog post on Medium [here](https://medium.com/chrisbensen/automated-candy-dispenser-weekend-hack-17e452be40f1).
 
 Halloween is quickly approaching and I need a way to hand out candy from a distance. Introducing the Automated Candy Dispenser! Build and setup the candy dispenser, run a tube from it to where the Trick-Or-Treaders will be holding out their bags, setup a [free compute with Oracle Cloud](https://tinyurl.com/getoraclecloud), and from your phone dispense candy with just the movement of your finger from anywhere. You literally couldn't get any lazier than this on Halloween.
 
