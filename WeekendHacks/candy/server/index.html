@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 4rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 50px;
+    background-color: rgba(220, 0, 0, 1);
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.status {
+  color: green;
+  font-size: 10rem;
+}
+
+div {text-align: center;}
+
+</style>
+
+<script>
+var request = new XMLHttpRequest()
+request.open('GET', 'http://<ServerIP>/query', true)
+request.onload = function () {
+  var data = JSON.parse(this.response)
+  document.getElementById("value1").innerHTML = data.speed;
+  document.getElementById("slider1").value = data.speed;
+  document.getElementById("status").innerHTML.color = data.status;
+}
+request.send();
+
+function doClick() {
+  console.log("click button");
+
+  var request = new XMLHttpRequest()
+  request.open('GET', 'http://<ServerIP>/candy', true)
+  request.onload = function () {
+  var data = JSON.parse(this.response)
+    document.getElementById("status").innerHTML.color = data.status;
+  }
+  request.send();
+}
+
+function doSlider(v){
+  document.getElementById("value1").innerHTML = v;
+  console.log("change slider");
+
+  var request = new XMLHttpRequest();
+  request.open('POST', 'http://<ServerIP>/auto', true);
+  request.setRequestHeader('Content-type', 'application/json');
+  request.onload = function () {
+      console.log(this.responseText);
+      var data = JSON.parse(this.response)
+  };
+  request.send(JSON.stringify({"speed": v}));
+}
+</script>
+
+</head>
+
+<body>
+<div>
+<span class="status" id="status">*</span>
+<br />
+<br />
+<!--
+<label name="value1" id="value1">0</label>
+<input id="slider1" name="slider1" type="range" min="0" max="10" step="1" value="0" onchange="doSlider(this.value)">
+<label for="slider">Per Minute</label>
+<br />
+<br />
+-->
+
+<button id="button1" name="button1" onclick="doClick()" class="styled">Candy!</button>
+</div>
+
+</body>
+</html>
