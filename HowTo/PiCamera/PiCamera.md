@@ -1,6 +1,6 @@
 # Stream a Pi Camera to Oracle Cloud
 
-by Chris chrisbensen
+by Chris Bensen
 
 If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-6328653c60af).
 
