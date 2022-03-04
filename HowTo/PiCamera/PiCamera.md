@@ -65,7 +65,7 @@ v4l2-ctl --list-formats-ext
 
 There are two video codecs we are interested in; H.264 and Motion-JPEG. Both have their advantages. For example H.264 has less support, it is not supported on Pi Zero because it uses more processor resources, but it uses less network bandwidth. For this article we will use H.264. So let's get some streaming setup.
 
- 1. The first thing I do when I boot up a Pi is rename one audio file. When the Pi first boots up you will get an annoying "to install a screen reader press control alt space" if you have audio hooked up:
+1. The first thing I do when I boot up a Pi is rename one audio file. When the Pi first boots up you will get an annoying "to install a screen reader press control alt space" if you have audio hooked up:
 
   ```
   sudo mv /usr/share/piwiz/srprompt.wav /usr/share/piwiz/srprompt.wav.old
