@@ -2,11 +2,14 @@
 
 by Chris Bensen
 
-If you prefer you can read this blog post on Medium [here](TODO).
+![](images/pexels-photography-maghradze-ph-3764958.jpg)
+Photo by Photography Maghradze PH from Pexels
 
-Last time in [Stream a Pi Camera to Oracle Cloud Part I](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-6328653c60af) I showed you how to stream to Oracle Cloud from a Raspberry Pi with a V2 Pi Camera using the new Pi Camera system. That article was simplified for step by step directions. I also explained a lot of the problems the Pi camera system faces, becaues there are a lot of problems and I haven't seen them outlined in one places. Lastly, all these permutation software, hardware, operating systems and bugs is very complicated. What I hope you come away with after this series is some examples that have been tested and verified to work so you can use them for your own projects.
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-part-ii-7ded4258b117).
 
-Let's look at the Legacy Pi Camera. It's legacy but it does still work. For now. However let me explain some differences at the time of writing this:
+Last time in [Stream a Pi Camera to Oracle Cloud Part I](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-6328653c60af) I showed you how to stream to Oracle Cloud from a Raspberry Pi with a V2 Pi Camera using the new Pi Camera system. That article was simplified with step-by-step directions. I also explained a lot of the problems the Pi camera system faces, as there are many issues and I haven't seen them outlined in one place. Lastly, when we add up all of these permutations in software, hardware, operating systems, and bugs it becomes very complicated. What I hope you come away with after this series are some examples that have been tested and verified to work so you can use them for your own projects.
+
+Let's look at the Legacy Pi Camera. It's legacy, but it still works (for now). But it's important that I explain some differences at the time of writing this:
 
 - The Legacy Camera currently (Buster and Bullseye) works on Pi Zero, Pi 3 and Pi 4.
 - I have not tested the Pi Zero (yet).
@@ -33,22 +36,23 @@ These are the best camera docs I have been able to find:
 
 1. You have setup a [Compute instance to be a web server](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2).
 
-Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) and other [Oracle Cloud documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034) [here](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&SC=:so:bl:or:awr:odv:::RC_WWMK220120P00034:&pcode=WWMK220120P00034). For interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
+Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute/home.htm?source=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&SC=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&pcode=WWMK220210P00062) and other [Oracle Cloud documentation](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&SC=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&pcode=WWMK220210P00062) [here](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/baremetalintro.htm?source=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&SC=:ex:tb:::::RC_WWMK220210P00062:Medium_CBensen&pcode=WWMK220210P00062). For interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
 
 
 # Example Streaming a Pi Camera to Oracle Cloud and Serving that from a Web Server
 
-One of the few examples on the internet that I could find that actually works is this [example](http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming). It hosts a web server on the Pi, go to the web server on any coputer on your network and you can see what the camera sees. I took that example and teased it appart into two parts; an Python app that runs on the Pi and streams the video from the camera to an IP address. That server, receives the stream and hosts a web server. Since the web server is hosted on Oracle Cloud you have a public IP address so anywhere in the world you can see your Pi camera!
+One of the few examples on the internet that I could find that actually works is this [example](http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming). It hosts a web server on the Pi, just go to the web server on any computer on your network and you can see what the camera sees. I took that example and teased it apart into two pieces: a Python app that runs on the Pi and streams the video from the camera to an IP address. The server receives the stream and hosts a web server. Since the web server is hosted on Oracle Cloud you have a public IP address so anywhere in the world you can see your Pi camera!
 
-To get started you need the prerequisits above.
+To get started you need the prerequisites above.
 
 Note that this example is just an example. It does not handle all error cases or reconnection cases. Once the server or client is terminated both must be restarted. This is unfortunate but by not adding all of the code you get to see the core code required to get this working.
 
-# Setup the Cloud
+# Cloud Setup
 
 1. Follow the steps [here](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2) for adding port 8100 to the security list:
 
 1. Then run the following commands to open up port 8100:
+
   ```
   sudo firewall-cmd --permanent --zone=public --add-port=8100/tcp
   sudo firewall-cmd --permanent --zone=public --add-port=8100/udp
@@ -57,19 +61,20 @@ Note that this example is just an example. It does not handle all error cases or
 
 1. Copy ``vidserver.py`` to your Compute instance:
 
-```
-scp sendvid.py pi@<PI IP Address>:/home/pi
-```
+    ```
+    scp vidserver.py pi@<PI IP Address>:/home/pi
+    ```
 
 1. Run the video web server:
 
-```
-sudo python3 vidserver.py
-```
+    ```
+    sudo python3 vidserver.py
+    ```
 
 The web server will wait until the stream is connected.
 
 [camserver.py](files/vidserver.py)
+
 ```
 import logging
 import socketserver
@@ -173,7 +178,7 @@ finally:
     print("shutdown"))
 ```
 
-## [](https://github.com/chrisbensen/chris-blogs/blob/main/HowTo/PiCamera2/PiCamera2.md#setup-a-rasbperry-pi)Setup a Rasbperry Pi
+## Rasbperry Pi Set Up
 
 1. Set up an SD card with your favorite OS. Here's how you can [install Oracle Linux](https://geraldonit.com/2019/03/18/how-to-install-oracle-linux-on-raspberry-pi/) but Raspberry Pi OS is super easy to install with the [Raspberry Pi Imager](https://www.raspberrypi.com/software/). Whichever OS you decide to use, they will all work and there are reasons to use each one.
 
@@ -186,11 +191,13 @@ finally:
   ```
 
 1. Update the OS:
+
   ```
   sudo apt-get update -y && sudo apt-get upgrade -y
   ```
 
 1. Turn on SPI, I2C and the Legacy Camera:
+
   ```
   sudo raspi-config
   ```
@@ -198,11 +205,13 @@ finally:
   **NOTE**: Bullseye does not have this option in the GUI version of the raspi-config tool.
 
 1. Reboot for all changes to take effect:
+
   ```
   sudo reboot
   ```
 
 1. Setup the camera for Motion-MPEG. Run the command:
+
   ```
   sudo pico /boot/config.txt
   ```
@@ -213,29 +222,29 @@ finally:
 
 1. Copy sendvid.py to your Pi:
 
-```
-scp sendvid.py pi@<PI IP Address>:/home/pi
-```
+    ```
+    scp sendvid.py pi@<PI IP Address>:/home/pi
+    ```
 
-[send.py](files/sendvid.py)
-```
-import io
-import picamera
-import socket
-from threading import Condition
-import argparse
-import time
-import struct
+    [send.py](files/sendvid.py)
+    ```
+    import io
+    import picamera
+    import socket
+    from threading import Condition
+    import argparse
+    import time
+    import struct
 
-parser = argparse.ArgumentParser(description="stream video.")
-parser.add_argument("ip", type=str)
-parser.add_argument("port", type=int)
-args = parser.parse_args()
+    parser = argparse.ArgumentParser(description="stream video.")
+    parser.add_argument("ip", type=str)
+    parser.add_argument("port", type=int)
+    args = parser.parse_args()
 
-address = (args.ip, args.port)
-clientSocket = None
+    address = (args.ip, args.port)
+    clientSocket = None
 
-while True:
+    while True:
     try:
         clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         clientSocket.connect(address)
@@ -244,15 +253,15 @@ while True:
         print("Connection Failed, Retrying..")
         time.sleep(1)
 
-print("connected")
+    print("connected")
 
 
-def sendMessage(connection, message):
+    def sendMessage(connection, message):
     # Message: [4 byte message length][variable message]
     lmessage = struct.pack('>I', len(message)) + message
     connection.sendall(lmessage)
 
-class StreamingOutput(object):
+    class StreamingOutput(object):
     def __init__(self):
         self.buffer = io.BytesIO()
 
@@ -263,7 +272,7 @@ class StreamingOutput(object):
             self.buffer.seek(0)
         return self.buffer.write(buf)
 
-with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
+    with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
     output = StreamingOutput()
     camera.start_recording(output, format='mjpeg')
     print("camera")
@@ -274,14 +283,16 @@ with picamera.PiCamera(resolution='640x480', framerate=24) as camera:
     finally:
         camera.stop_recording()
         clientSocket.close()
-```
+    ```
 
 1. Once you have ``sendvid.py`` on your Pi, run it:
 
-```
-sudo python3 sendvid.py <IpAddress> 8100
-```
+    ```
+    sudo python3 sendvid.py <IpAddress> 8100
+    ```
 
 # View the Video
 
 1. Open up a web browser, type in your public IP address and watch your camera!
+
+If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
