@@ -1,4 +1,4 @@
-# Stream a Pi Camera to Oracle Cloud Part II
+# Stream a Pi Camera to Oracle Cloud Part Deux
 
 by Chris Bensen
 
@@ -7,7 +7,7 @@ Photo by Photography Maghradze PH from Pexels
 
 If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-part-ii-7ded4258b117).
 
-Last time in [Stream a Pi Camera to Oracle Cloud Part I](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-6328653c60af) I showed you how to stream to Oracle Cloud from a Raspberry Pi with a V2 Pi Camera using the new Pi Camera system. That article was simplified with step-by-step directions. I also explained a lot of the problems the Pi camera system faces, as there are many issues and I haven't seen them outlined in one place. Lastly, when we add up all of these permutations in software, hardware, operating systems, and bugs it becomes very complicated. What I hope you come away with after this series are some examples that have been tested and verified to work so you can use them for your own projects.
+Last time in [Stream a Pi Camera to Oracle Cloud](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-6328653c60af) part one, I showed you how to stream to Oracle Cloud from a Raspberry Pi with a V2 Pi Camera using the new Pi Camera system. That article was simplified with step-by-step directions. I also explained a lot of the problems the Pi camera system faces, as there are many issues and I haven't seen them outlined in one place. Lastly, when we add up all of these permutations in software, hardware, operating systems, and bugs it becomes very complicated. What I hope you come away with after this series are some examples that have been tested and verified to work so you can use them for your own projects.
 
 Let's look at the Legacy Pi Camera. It's legacy, but it still works (for now). But it's important that I explain some differences at the time of writing this:
 
