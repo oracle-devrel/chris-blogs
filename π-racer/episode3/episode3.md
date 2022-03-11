@@ -4,7 +4,7 @@ By Chris Bensen
 
 ![CAD Model of Eff-Uno Racer](model.png)
 
-NOTE: If you would prefer to read this on GitHub in markdown go [here](https://chrisbensen.medium.com/building-a-race-car-frame-out-of-a-toy-c7bec93e53b3).
+NOTE: If you would prefer to read this on Medium go [here](https://chrisbensen.medium.com/building-a-race-car-frame-out-of-a-toy-c7bec93e53b3).
 
 In my previous two episodes (links at the bottom of this article) I built a custom breadboard setup for a Raspberry Pi and Arduino. Although it can be used for any project, I 3D printed a pad of bricks and connected up an RC servo and DC brushless motor via and ESC for a very specific project: I'm building a race car!
 

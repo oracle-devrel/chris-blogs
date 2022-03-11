@@ -3,6 +3,8 @@ by Chris Bensen
 
 ![Pi Zero Custom Breadboard](breadboard.jpg)
 
+If you prefer you can read this blog post on Medium [here](https://medium.com/chrisbensen/starting-a-new-project-pi-zero-custom-breadboard-834df6414ac6).
+
 Every time I start a new project it’s different. Different set of challenges, different tools, different infrastructure and requirements. An entirely different end product.
 
 I usually work on new projects, prototyping things that nobody has done before. Usually we know what the end product needs to be, but sometimes we’re discovering that as we go. I’m a big fan of Kaizen, which is Japanese for “continuous improvement”. I like to start off by taking a step back and looking at what is required, and with 80% of the knowledge, make a gut decision based on experience and jump right in.

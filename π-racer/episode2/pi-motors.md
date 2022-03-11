@@ -3,6 +3,8 @@ By Chris Bensen
 
 ![Pi, Arduino, IC2, Brushless Motors](breadboard.jpg)
 
+If you prefer you can read this blog post on Medium [here](https://medium.com/chrisbensen/pi-controlled-motors-b5cf81eea42f).
+
 ## A Rabbit Hole
 
 All too often someone shows something they built and maybe a short video or blog post about how it was done, but the directions are far from complete and the rationale behind the choices is lacking. The reason I’m doing this series is to show the process and the rationale behind the choices. At the end we will have something that’s pretty cool. Trust me. The problem is that things always take more time than expected. I thought I’d be a little further than where I’m currently at, but there’s been some discovery and research along the way. If everything went together smoothly, then I’d already have made one of these.
