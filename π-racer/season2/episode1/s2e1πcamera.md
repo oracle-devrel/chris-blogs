@@ -2,13 +2,11 @@
 
 By Chris Bensen
 
-![CAD Model of Eff-Uno Racer](carfront.png)
-
 You can follow this project on Medium [here](TODO).
 
 Happy π day everyone! Last week I wrote how to [stream a Pi camera to Oracle cloud](https://chrisbensen.medium.com/stream-a-pi-camera-to-oracle-cloud-part-ii-7ded4258b117), the second post. This week I made a video for π day and the π Racer by adding the π camera to the π racer.
 
-[TODO Embed](https://youtu.be/7-pzfxkDghY)
+![https://img.youtube.com/vi/7-pzfxkDghY/maxresdefault.jpg](https://youtu.be/7-pzfxkDghY)
 
 This season there will be some hardware changes but it's all about the code. Code and instructions. We want you to build your own, if you want. Currently everything is in various forms of research and prototyping. Every few weeks I will be moving the needle forward and post code, a blog or a video when there is a major milestone. The Pi camera has been a major milestone. I wouldn't call it production ready, it doesn't reconnect or handle errors and the Pi camera runs for a very short period of time because of this line of code:
 
