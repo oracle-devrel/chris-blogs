@@ -125,12 +125,14 @@ if __name__ == "__main__":
   sudo python3 filedrop.py 1.2.3.4 8100 foo.zip chris knockknock whothat &
   ```
 
-1. From any computer use a web browser and access the url http://<YourPublicIP>:<Port>/PathToFile?Name=Value and the file will be downloaded then deleted from the VM. If any attempt to access the wrong URL occurs the file will be deleted. Share this URL with who you want to download this file. Now what I find extremely gratifying is I can send it in pieces and the other person must assemble it correctly or if they try without everything being correct it will get deleted. This can be a pain so I usually have a phone call with them. I trust the security through obscurity but I prefer for it to be as real time as possible. It's your choice, but thought I'd share beucase sending confidiential information over email is not a good idea.
+1. From any computer use a web browser and access the url http://<YourPublicIP>:<Port>/PathToFile?Name=Value to download the file.
 
   For Example:
 
   ```
   http://<YourPublicIP>:8100/chris/foo.zip?knockknock=whothat
   ```
+
+The file will be downloaded then deleted from the VM. If any attempt to access the wrong URL occurs the file will be deleted. Share this URL with who you want to download this file. Now what I find extremely gratifying is I can send the URL in pieces and the other person must assemble it correctly or if they try without everything being correct it will get deleted. This can be a pain so I usually have a phone call if I choose this options. I trust the security through obscurity but I prefer for it to be as real time as possible. It's your choice, but thought I'd share beucase sending confidiential information over email is not a good idea.
 
 If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
