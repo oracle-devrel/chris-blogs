@@ -3,7 +3,7 @@
 By Chris Bensen
 
 ![](images/pexels-damir-mijailovic-3587015.jpg)
-Photo by Damir Mijailovic from Pexels
+[Photo by Damir Mijailovic from Pexels](https://www.pexels.com/photo/photo-of-water-drop-3587015/)
 
 If you prefer you can read this blog post on Medium [here](TODO).
 
