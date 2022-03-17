@@ -5,7 +5,7 @@ By Chris Bensen
 ![](images/pexels-damir-mijailovic-3587015.jpg)
 [Photo by Damir Mijailovic from Pexels](https://www.pexels.com/photo/photo-of-water-drop-3587015/)
 
-If you prefer you can read this blog post on Medium [here](TODO).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/1ab2ed0fb86b).
 
 Have you ever wanted to share a file with someone, but it contained sensitive information? Many people think email is secure, but it isn't. There are services, like DropBox and Google Drive, but who knows what happens with that file after you delete itm as you really don't have full control. Here is a mechanism that I personally use that is ___security through serious obscurity___ and it is a one-time download. Let's get started!
 
@@ -122,7 +122,7 @@ if __name__ == "__main__":
   For example:
 
     ```console
-    scp foo.zip ocp@1.2.3.4:/home/pi
+    scp foo.zip opc@1.2.3.4:/home/opc
     sudo python3 filedrop.py 1.2.3.4 8100 foo.zip chris knockknock whothat &
     ```
 
@@ -134,7 +134,7 @@ if __name__ == "__main__":
     http://<YourPublicIP>:8100/chris/foo.zip?knockknock=whothat
     ```
 
-The file will be downloaded, and then deleted from the VM. If any attempt to access the wrong URL occurs the file will be deleted. Share this URL with whomever you want to download the file. 
+The file will be downloaded, and then deleted from the VM. If any attempt to access the wrong URL occurs the file will be deleted. Share this URL with whomever you want to download the file.
 
 What I find gratifying: I can send the URL in pieces and the other person must assemble it correctly, but if they fail the file will be deleted. This can be a pain, so I usually have a phone call if I choose this option. I trust "security through obscurity" in this limited case, but I prefer for it to be as real-time as possible. It's your choice, but thought I'd share because sending confidiential information over email is not a good idea.
 
