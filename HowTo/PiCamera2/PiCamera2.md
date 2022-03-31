@@ -49,7 +49,7 @@ Note that this example is just an example. It does not handle all error cases or
 
 # Cloud Setup
 
-1. Follow the steps [here](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2) for adding port 8100 to the security list:
+1. At this point you have a compute instance that exposes port 80 for a web server. We also need to open up port 8100 for the incoming camera stream. Follow the steps [here](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2) for adding port 8100 to the security list:
 
 1. Then run the following commands to open up port 8100:
 
@@ -62,7 +62,7 @@ Note that this example is just an example. It does not handle all error cases or
 1. Copy ``vidserver.py`` to your Compute instance:
 
     ```
-    scp vidserver.py pi@<PI IP Address>:/home/pi
+    scp vidserver.py ocp@<INSTANCE_IP>:/home/opc
     ```
 
 1. Run the video web server:
@@ -170,7 +170,7 @@ class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
     daemon_threads = True
 
 try:
-    address = ('', 8000)
+    address = ('', 80)
     server = StreamingServer(address, StreamingHandler)
     server.serve_forever()
     print("starting")
@@ -193,6 +193,7 @@ finally:
 1. Update the OS:
 
   ```
+  sudo rpi-update
   sudo apt-get update -y && sudo apt-get upgrade -y
   ```
 

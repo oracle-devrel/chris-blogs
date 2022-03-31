@@ -1,4 +1,4 @@
-# White List Your IP Address to Security Connect to an OCI Compute Instance
+# Allowlist Your IP Address to Security Connect to an OCI Compute Instance
 
 By Chris Bensen
 
@@ -11,7 +11,7 @@ A <em><strong>bastion</strong></em> host is the only computer that is a proxy fo
 
 <em><strong>VPN</strong></em> is a security technology for users to connect to a network securely.
 
-Every time I setup a VM in the cloud with a public IP address, all the security bells go off in my head. As they should. But setting up a bastion or VPN is such a pain. And overkill. Seriously, who has time for that when you're building a weekend hack? So here's a very simple way to whitelist your public IP address so your computer is the only one that can interact with the VM.
+Every time I setup a VM in the cloud with a public IP address, all the security bells go off in my head. As they should. But setting up a bastion or VPN is such a pain. And overkill. Seriously, who has time for that when you're building a weekend hack? So here's a very simple way to allowlist your public IP address so your computer is the only one that can interact with the VM.
 
 ## Step 1 - Get an Oracle Free Tier
 
@@ -31,9 +31,9 @@ dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com
 
 It will be referred to as **\<PersonalIPAddress>**
 
-## Step 4 - Set Up the Security List to Whitelist Your IP Address
+## Step 4 - Set Up the Security List to Allowlist Your IP Address
 
-Now that you have an instance and your public IP address, follow these steps to whitelist only your computer to access the instance via SSH (port 22).
+Now that you have an instance and your public IP address, follow these steps to allowlist only your computer to access the instance via SSH (port 22).
 
 1. Click the link next to "Subnet" field, this will bring you to the list of Virtual Cloud Networks:
 
