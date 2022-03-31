@@ -226,7 +226,7 @@ finally:
     scp sendvid.py pi@<PI IP Address>:/home/pi
     ```
 
-    [send.py](files/sendvid.py)
+    [sendvid.py](files/sendvid.py)
     ```
     import io
     import picamera
