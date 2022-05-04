@@ -54,12 +54,12 @@ const int accelerometerIC2Address = 0x1D;
 // Pin 5 -> GPS RX
 // 3.3v ->GPS 3.3v
 // GND ->GPS GND
-//#include <Adafruit_GPS.h>
-//#include <SoftwareSerial.h>
-//
-//SoftwareSerial GPSSerial(6, 5);
-//Adafruit_GPS GPS(&GPSSerial);
-//uint32_t timer = millis();
+#include <Adafruit_GPS.h>
+#include <SoftwareSerial.h>
+
+SoftwareSerial GPSSerial(6, 5);
+Adafruit_GPS GPS(&GPSSerial);
+uint32_t timer = millis();
 
 void setup() {
   Serial.begin(115200); // initialize serial
@@ -76,6 +76,7 @@ void setup() {
   
   LoRa.setSyncWord(syncWord);
   LoRa.setSpreadingFactor(spreadingFactor);
+  LoRa.setTxPower(20, true);
   LoRa.setTimeout(10); //set Stream timeout of 10ms
   Serial.println("LoRa init succeeded"); //set the I/O pin modes:
 
@@ -95,26 +96,29 @@ void setup() {
 
   //--------------------------------------------------------------------------------
   // Initialize GPS
-//  Serial.println("GPS Software Serial");
-//  GPS.begin(9600);
-//  // uncomment this line to turn on RMC (recommended minimum) and GGA (fix data) including altitude
-//  GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
-//  // uncomment this line to turn on only the "minimum recommended" data
-//  //GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
-//  // For parsing data, we don't suggest using anything but either RMC only or RMC+GGA since
-//  // the parser doesn't care about other sentences at this time
-//
-//  // Set the update rate
-//  GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);   // 1 Hz update rate
-//  // For the parsing code to work nicely and have time to sort thru the data, and
-//  // print it out we don't suggest using anything higher than 1 Hz
-//
-//  // Request updates on antenna status, comment out to keep quiet
-//  GPS.sendCommand(PGCMD_ANTENNA);
-//
-//  delay(1000);
-//  // Ask for firmware version
-//  GPSSerial.println(PMTK_Q_RELEASE);
+  Serial.println("GPS Software Serial");
+  GPS.begin(9600);
+  // uncomment this line to turn on RMC (recommended minimum) and GGA (fix data) including altitude
+  GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCGGA);
+  // uncomment this line to turn on only the "minimum recommended" data
+  //GPS.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
+  // For parsing data, we don't suggest using anything but either RMC only or RMC+GGA since
+  // the parser doesn't care about other sentences at this time
+
+  // Set the update rate
+  GPS.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);   // 1 Hz update rate
+  // For the parsing code to work nicely and have time to sort thru the data, and
+  // print it out we don't suggest using anything higher than 1 Hz
+
+  // Request updates on antenna status, comment out to keep quiet
+  GPS.sendCommand(PGCMD_ANTENNA);
+
+  delay(1000);
+  // Ask for firmware version
+  GPSSerial.println(PMTK_Q_RELEASE);
+
+  Serial.println("Setup Complete");
+  Serial.flush();
 }
 
 int counter = 0;
@@ -126,23 +130,23 @@ void sendData(String name, String value) {
 }
 
 void loop() {
-//  char c = GPS.read();
-//
-//  if (c)
-//    Serial.write(c);
-//
-//  // if a sentence is received, we can check the checksum, parse it...
-//  if (GPS.newNMEAreceived()) {
-//    // a tricky thing here is if we print the NMEA sentence, or data
-//    // we end up not listening and catching other sentences!
-//    // so be very wary if using OUTPUT_ALLDATA and trytng to print out data
-//    //Serial.println(GPS.lastNMEA());   // this also sets the newNMEAreceived() flag to false
-//
-//    if (!GPS.parse(GPS.lastNMEA())) {   // this also sets the newNMEAreceived() flag to false
-//      Serial.println("GPS FAILED");
-//      return;  // we can fail to parse a sentence in which case we should just wait for another
-//    }
-//  }
+  char c = GPS.read();
+
+  if (c)
+    Serial.write(c);
+
+  // if a sentence is received, we can check the checksum, parse it...
+  if (GPS.newNMEAreceived()) {
+    // a tricky thing here is if we print the NMEA sentence, or data
+    // we end up not listening and catching other sentences!
+    // so be very wary if using OUTPUT_ALLDATA and trytng to print out data
+    //Serial.println(GPS.lastNMEA());   // this also sets the newNMEAreceived() flag to false
+
+    if (!GPS.parse(GPS.lastNMEA())) {   // this also sets the newNMEAreceived() flag to false
+      Serial.println("GPS FAILED");
+      return;  // we can fail to parse a sentence in which case we should just wait for another
+    }
+  }
  
   if (!myAdxl.dataReady()) {// check data ready interrupt, note, this clears all other int bits in INT_SOURCE reg
     Serial.println("Waiting for dataReady.");
@@ -159,22 +163,22 @@ void loop() {
     sendData("x", String(myAdxl.x));
     sendData("y", String(myAdxl.y));
     sendData("z", String(myAdxl.z));
-//    sendData("day", String(GPS.day, DEC));
-//    sendData("month", String(GPS.month, DEC));
-//    sendData("year", String(GPS.year, DEC));
-//    sendData("fix", String((int)GPS.fix));
-//    sendData("quality", String((int)GPS.fixquality));
-//    
-//    if (GPS.fix) {
-//      sendData("latitude", String(GPS.latitude, 4));
-//      sendData("lat", String(GPS.lat));
-//      sendData("longitude", String(GPS.longitude, 4));
-//      sendData("long", String(GPS.lon));
-//      sendData("knots", String(GPS.speed));
-//      sendData("angle", String(GPS.angle));
-//      sendData("altitude", String(GPS.altitude));
-//      sendData("satellites", String((int)GPS.satellites));
-//    }
+    sendData("day", String(GPS.day, DEC));
+    sendData("month", String(GPS.month, DEC));
+    sendData("year", String(GPS.year, DEC));
+    sendData("fix", String((int)GPS.fix));
+    sendData("quality", String((int)GPS.fixquality));
+    
+    if (GPS.fix) {
+      sendData("latitude", String(GPS.latitude, 4));
+      sendData("lat", String(GPS.lat));
+      sendData("longitude", String(GPS.longitude, 4));
+      sendData("long", String(GPS.lon));
+      sendData("knots", String(GPS.speed));
+      sendData("angle", String(GPS.angle));
+      sendData("altitude", String(GPS.altitude));
+      sendData("satellites", String((int)GPS.satellites));
+    }
     LoRa.print(",END");
     Serial.println();
     LoRa.endPacket();
