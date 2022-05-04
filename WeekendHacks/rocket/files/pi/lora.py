@@ -13,7 +13,6 @@ import time
 import busio
 from digitalio import DigitalInOut, Direction, Pull
 import board
-#import adafruit_ssd1306
 import adafruit_rfm9x
 import requests
 import os
@@ -25,7 +24,7 @@ print(URL)
 if (URL is None):
   print("URL environment variable not found")
 
-flight_file = open("test.txt", "a+")
+flight_file = open("lora.log", "a+")
 
 # Configure LoRa Radio
 CS = DigitalInOut(board.CE1)
