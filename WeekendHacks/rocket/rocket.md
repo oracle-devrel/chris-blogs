@@ -4,7 +4,7 @@ By Chris Bensen
 
 ![](images/thumbnail.png)
 
-If you prefer you can read this blog post on Medium [here](TODO).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/project-kessel-run-fc081eb0fd03).
 
 Rockets are cool, so why not create a cloud connected rocket. I'm calling this one Kessel Run. Happy May the 4th be with you! This is an IoT rocket. The flight computer is an Arduino + LoRa traseiver + GPS + Acceleromiter broadcasting to a base station running a Raspberry Pi + LoRa traseiver connected to my cell phone's hot spot to the internet and sending everything to the Oracle Cloud.
 
@@ -20,7 +20,7 @@ To build one you will need a few things.
 
 ## Building the Rocket
 
-TODO YouTube
+[Build Video](https://youtu.be/0xlxQlmg2g8)
 
 Assembly is fairly stright forward. Download the 3D printable files and the fins. If you have access to a laser cutter it's super simple, otherwise print out the []`rocketfins.pdf`](files/models/rocketfins.pdf), place it over some thing balsawood and use an exacto knife to cut three wings out.
 
@@ -372,4 +372,6 @@ Copy `lora.py` to your Pi.
 
 ## Cloud
 
-Run with `python3 lora.py`. If you create the environment variable `export URL=<endpoint>` then all the data will be streamed to the REST endoint. This requires an Oracle Cloud account. You can get one for free called the [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397). Stay tuned for future directions how to setup the cloud for streaming.
+Run with `python3 lora.py`. If you create the environment variable `export URL=<endpoint>` then all the data will be streamed to the REST endoint. This requires an Oracle Cloud account. You can get one for free called the [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
+
+Stay tuned for future directions how to setup the cloud for streaming.
