@@ -46,6 +46,7 @@ https://www.sparkfun.com/products/17241
 
 ![](images/flightcomputer_breadboard.jpg)
 
+```
 Arduino Micro -> LoRa
 MISO-pin 50 ->LoRa MISO
 MOSI-pin 51 ->LoRa MOSI
@@ -67,6 +68,7 @@ Pin 6 -> GPS TX
 Pin 5 -> GPS RX
 3.3v ->GPS 3.3v
 GND ->GPS GND
+```
 
 I used the 433 MHz LoRa transeiver and it needs an antenna. For the 433 MHz band the wavelength is 299.792.458 / 433.000.000 = 69,24 cm. A quarter is 17,31 cm which is a good length so I cut a wire that length and soldered it to the antenna of both the trasmitter and receiver.
 
@@ -86,6 +88,7 @@ https://learn.adafruit.com/adafruit-rfm69hcw-and-rfm96-rfm95-rfm98-lora-packet-p
 
 Any Pi 3 or Pi 4 will work.
 
+```
 Pi -> LoRa
 Pi Pin MOSI -> LoRa MOSI
 Pi Pin MISO -> LoRa MISO
@@ -95,6 +98,7 @@ Pi Pin 5 -> LoRa RST
 Pi Pin CE1 -> LoRa G0
 Pi Pin 3.3v  -> LoRa VIN
 Pi Pin GND -> LoRa GND
+```
 
 ## May The Source Be With You
 
