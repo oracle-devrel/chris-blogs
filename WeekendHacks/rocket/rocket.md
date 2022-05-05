@@ -6,7 +6,7 @@ By Chris Bensen
 
 If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/project-kessel-run-fc081eb0fd03).
 
-Rockets are cool, so why not create a cloud connected rocket. I'm calling this one Kessel Run. Happy May the 4th be with you! This is an IoT rocket. The flight computer is an Arduino + LoRa traseiver + GPS + Acceleromiter broadcasting to a base station running a Raspberry Pi + LoRa traseiver connected to my cell phone's hot spot to the internet and sending everything to the Oracle Cloud.
+Rockets are cool, so why not create a cloud connected rocket. I'm calling this one Kessel Run. Happy May the 4th be with you! This is an IoT rocket. The flight computer is an Arduino + LoRa trasceiver + GPS + Acceleromiter broadcasting to a base station running a Raspberry Pi + LoRa trasceiver connected to my cell phone's hot spot to the internet and sending everything to the Oracle Cloud.
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ To build one you will need a few things.
 
 1. You have an OCI account or a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
 
-1. Get the parts from [here](TODO).
+1. Get the parts from [here](https://demoparts.withoracle.cloud/ords/r/au_cts/dvr-bom-creator/sharedbom?p10001_bomref=295451616379598227377985226295520958226).
 
 2. Download the 3D printable files from [Thingiverse](https://www.thingiverse.com/thing:5377245).
 
@@ -22,7 +22,7 @@ To build one you will need a few things.
 
 [Build Video](https://youtu.be/0xlxQlmg2g8)
 
-Assembly is fairly stright forward. Download the 3D printable files and the fins. If you have access to a laser cutter it's super simple, otherwise print out the []`rocketfins.pdf`](files/models/rocketfins.pdf), place it over some thing balsawood and use an exacto knife to cut three wings out.
+Assembly is fairly stright forward. Download the 3D printable files and the fins. If you have access to a laser cutter it's super simple, otherwise print out the [`rocketfins.pdf`](files/models/rocketfins.pdf), place it over some thing balsawood and use an exacto knife to cut three wings out.
 
 The nose cone comes in two pieces. Simply print those, I used a .4mm nozzle. If you add electronics then you can also print out the battery holder or if you use a different battery than a you will want to customize it. Easy hack is to just attach the wires to the ends of the battery using electrical tape.
 
@@ -38,6 +38,9 @@ https://www.etechnophiles.com/arduino-micro-pinout-schematic-and-specifications/
 
 GPS
 https://www.adafruit.com/product/746
+
+Accelerometer
+https://www.sparkfun.com/products/17241
 
 ### Wiring of the Flight Computer
 
