@@ -26,4 +26,4 @@ This is an odd function. There is no **record forever**. Honestly I'm trying not
 * Step by step directions
 
 
-If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
+If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers.

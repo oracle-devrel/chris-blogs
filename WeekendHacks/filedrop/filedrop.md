@@ -138,4 +138,4 @@ The file will be downloaded, and then deleted from the VM. If any attempt to acc
 
 What I find gratifying: I can send the URL in pieces and the other person must assemble it correctly, but if they fail the file will be deleted. This can be a pain, so I usually have a phone call if I choose this option. I trust "security through obscurity" in this limited case, but I prefer for it to be as real-time as possible. It's your choice, but thought I'd share because sending confidiential information over email is not a good idea.
 
-If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://oracledevrel.slack.com/join/shared_invite/zt-uffjmwh3-ksmv2ii9YxSkc6IpbokL1g#/shared-invite/email) for developers.
+If you have any questions or for interactive support and community check out Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers.
