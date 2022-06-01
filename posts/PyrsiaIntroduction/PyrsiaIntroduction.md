@@ -4,7 +4,7 @@ by Chris Bensen
 
 ![logo](https://raw.githubusercontent.com/pyrsia/.github/main/images/logo-color.svg)
 
-If you prefer you can read this blog post on Medium [here](TODO).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/introducing-pyrsia-5408c7c3d527).
 
 From the experts of binary management, [JFrog](https://www.jfrog.com), comes [Pyrsia](https://pyrsia.io). [Pyrsia](https://pyrsia.io) is a solution to the open source software supply chain like nothing you've seen before. You can read a little about it [here](https://github.com/pyrsia), [here](https://jfrog.com/blog/pyrsia-open-source-software-that-helps-protect-the-open-source-supply-chain/) and [here](https://www.businesswire.com/news/home/20220525005671/en/JFrog-Ushers-in-New-Era-of-Open-Source-Software-Security-Launching-Project-Pyrsia-to-Help-Prevent-Software-Supply-Chain-Attacks).
 
