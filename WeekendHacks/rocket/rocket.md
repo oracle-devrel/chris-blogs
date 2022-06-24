@@ -14,7 +14,7 @@ To build one you will need a few things.
 
 1. You have an OCI account or a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
 
-1. Get the parts from [here](https://demoparts.withoracle.cloud/ords/r/au_cts/dvr-bom-creator/sharedbom?p10001_bomref=295451616379598227377985226295520958226).
+1. Get the parts from [here](https://demoparts.withoracle.cloud/sharedbom?ref=295451616379598227377985226295520958226).
 
 2. Download the 3D printable files from [Thingiverse](https://www.thingiverse.com/thing:5377245).
 
