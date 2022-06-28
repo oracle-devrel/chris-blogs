@@ -5,7 +5,7 @@ by Chris Bensen
 ![](images/pexels-miguel-Ã¡-padriÃ±Ã¡n-2882668.jpg)
 [Photo by Miguel Á. Padriñán](https://www.pexels.com/photo/close-up-shot-of-keys-on-a-red-surface-2882668/)
 
-If you prefer you can read this blog post on Medium [here](TODO).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/poor-mans-auto-update-eb5bfdfe39cf).
 
 Back in the good old day's GitHub allowed anonymous downloads. Now it requires username/password or ssh key. That's no good when the Pi is out of your control. So introducing the Chris Bensen Poor Man's Auto Update. Whatever you do do not do this at home, I am a professional and understand the security vulnerabilities.
 
