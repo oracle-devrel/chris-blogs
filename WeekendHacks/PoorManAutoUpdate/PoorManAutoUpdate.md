@@ -31,7 +31,7 @@ The scenario is you have a script that runs on your Raspberry Pi and you need to
 
 curl -X GET \
   <UrlToFile> \
-  -o sendvid.py
+  -o file.py
 
 file1="/users/pi/updater/repo/file.py"
 file2="/users/pi/updater/file.py"
