@@ -1,11 +1,11 @@
-# Create a Simple Docker Container with a Python Web Server 
+# Create a Simple Docker Container with a Python Web Server
 
 By Chris Bensen
 
 ![](images/pexels-frans-van-heerden-1624695.jpg)
 [Photo by Frans van Heerden:](https://www.pexels.com/photo/cargo-containers-trailer-lot-1624695/)
 
-If you prefer you can read this blog post on Medium [here](TODO).
+If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/create-a-simple-docker-container-with-a-python-web-server-26534205061a).
 
 If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our [Slack channel](https://bit.ly/devrel_slack) for developers!
 
@@ -74,8 +74,9 @@ This article may seem obvious to some but others need to know how to get started
       webServer.server_close()
       print("Server stopped.")
   ```
+## Put Everything into a Docker Container
 
-1. Create **Dockerfile**
+1. Create **Dockerfile**:
   ```
   FROM python:3
   ADD index.html index.html
