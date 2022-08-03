@@ -6,13 +6,13 @@ By Chris Bensen
 
 If you prefer you can read this blog post on Medium [here](https://medium.com/@chrisbensen/create-a-simple-python-web-server-on-oci-1d3634a1d7c2).
 
-If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our public!
+If you’re curious about the goings-on of Oracle Developers in their natural habitat, come join us on our public [Slack channel](https://bit.ly/devrel_slack) for developers!
 
 This article may seem obvious to some but others need to know how to get started. Having a server running in the cloud 24-7 is great but chances are you actually want to do something with it. That's where the steps in this article come in.
 
 ## Prerequisites
 
-1. You have an OCI account or a [Free Tier Account](https://medium.com/oracledevs/create-an-oracle-always-free-cloud-account-bc6aa82c1397).
+1. You have an OCI account or a [Python Web Server](https://medium.com/oracledevs/create-a-simple-python-web-server-on-oci-1d3634a1d7c2).
 
 1. You have created a [Compute Instance](https://chrisbensen.medium.com/create-an-oci-compute-instance-493d10e2e6a6).
 
@@ -72,7 +72,6 @@ Now, let's create the web server. We will live dangerously and open a port so an
   import json
   from socketserver import ThreadingMixIn
   import threading
-  import requests
 
   hostName = "0.0.0.0"
   serverPort = 80
