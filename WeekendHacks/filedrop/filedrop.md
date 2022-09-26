@@ -20,7 +20,7 @@ Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute
 1. Now that you have all the prerequisites set up for a web server, instead of running ``server.py`` we're going to use ``filedrop.py``. Copy ``filedrop.py`` to your Compute instance:
 
     ```console
-    scp vidserver.py opc@${INSTANCE_IP}:/home/opc
+    scp filedrop.py opc@${INSTANCE_IP}:/home/opc
     ```
 
     [filedrop.py](files/filedrop.py)
