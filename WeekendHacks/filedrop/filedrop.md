@@ -27,7 +27,7 @@ Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute
 
     ```python
     # Python 3 file drop example
-    # Run: python3 server.py
+    # Run: python3 filedrop.py
     from http.server import BaseHTTPRequestHandler, HTTPServer
     import time
     import os
@@ -37,9 +37,9 @@ Find out more about [Compute](https://docs.oracle.com/en-us/iaas/Content/Compute
     parser.add_argument("ip", type=str)
     parser.add_argument("port", type=int, default=2022)
     parser.add_argument("filename", type=str)
-    parser.add_argument("droppath", type=string)
-    parser.add_argument("dropname", type=string)
-    parser.add_argument("dropvalue", type=string)
+    parser.add_argument("droppath", type=str)
+    parser.add_argument("dropname", type=str)
+    parser.add_argument("dropvalue", type=str)
     args = parser.parse_args()
 
     address = (args.ip, args.port)
@@ -123,7 +123,7 @@ if __name__ == "__main__":
 
     ```console
     scp foo.zip opc@1.2.3.4:/home/opc
-    sudo python3 filedrop.py 1.2.3.4 8100 foo.zip chris knockknock whothat &
+    sudo python3 filedrop.py 0.0.0.0 8100 foo.zip chris knockknock whothat &
     ```
 
 1. From any computer use a web browser and access the url `http://<YourPublicIP>:<Port>/PathToFile?Name=Value` to download the file.

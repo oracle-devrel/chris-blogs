@@ -1,5 +1,5 @@
 # Python 3 file drop example
-# Run: python3 server.py
+# Run: python3 filedrop.py
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import time
 import os
@@ -9,9 +9,9 @@ parser = argparse.ArgumentParser(description="File drop.")
 parser.add_argument("ip", type=str)
 parser.add_argument("port", type=int, default=2022)
 parser.add_argument("filename", type=str)
-parser.add_argument("droppath", type=string)
-parser.add_argument("dropname", type=string)
-parser.add_argument("dropvalue", type=string)
+parser.add_argument("droppath", type=str)
+parser.add_argument("dropname", type=str)
+parser.add_argument("dropvalue", type=str)
 args = parser.parse_args()
 
 address = (args.ip, args.port)
