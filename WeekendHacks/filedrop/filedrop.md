@@ -116,7 +116,7 @@ if __name__ == "__main__":
 1. run the server
 
     ```console
-    sudo python3 server.py <PrivateIP> <Port> <Filename> <PathToFile> <Name> <Value> &
+    sudo python3 filedrop.py <PrivateIP> <Port> <Filename> <PathToFile> <Name> <Value> &
     ```
 
   For example:
