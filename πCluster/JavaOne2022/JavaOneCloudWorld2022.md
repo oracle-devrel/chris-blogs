@@ -1,0 +1,278 @@
+# The Raspberry Pi Super Computer at Java One and Cloud World 2022
+
+by Chris Bensen
+
+If you prefer you can read this blog post on Medium [here]().
+
+The Raspberry Pi Super Computer was originally built for Open World in October 2019. We have 1050 Raspberry Pi 3b+ in four server racks configured in a big square box reminiscent of a British Police box popularized in a certain British Television TV series. Fast forward to today the Pi Cluster The Raspberry Pi Super Computer (Pi Cluster) got sent to e-waste, some parts stripped off it, sat dormant for 2 years then May of this year found it's way to my garage where it would get a complete overhaul.
+
+![The Raspberry Pi Super Computer Rendering](images/CodeOneSF2019-70.jpg)
+
+For a temporal history of how 1050 Raspberry Pi came to be in one creation and everything behind the scenes I have written about it here in [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO) and how Gerald Venzl brought Oracle Switzerland 12-node cluster to my attention and we brainstormed the idea of doing a really big cluster with Stephen Chin or how the Pi Cluster went to e-waste during Covid lockdowns and the California fires and Eric Sedlar rescued it storing it at Oracle Labs. If you find that too long, watch the [original build video](World’s Largest Raspberry Pi Cluster (that we know of)
+https://www.youtube.com/watch?v=KbVcRQQ9PNw), this [Building the world’s largest Raspberry Pi cluster](https://blogs.oracle.com/developers/post/building-the-worlds-largest-raspberry-pi-cluster) by Gerald Venzl and this video [Big Pi Cluster In My Garage - Part I](https://www.youtube.com/watch?v=ELvkg_88XSY).
+
+
+## Resurrection
+
+When Java One was announced I immediately proposed we resurrect The World's Largest Raspberry Pi Super Computer (that we know of). Who doesn't like a good resurrection story. The proposal went something like this:
+
+1.	Donate it to the Computer History Museum as a non-functional art piece for Pi Day.
+2.	Raspberry Pi are valuable now. Raffle off a piece of the Pi to win a free Raspberry Pi 3B+ from the World’s Largest Raspberry Pi Cluster.
+3.	But we have one opportunity to make history. I propose we fix it for Java One, add fans so it doesn't overheat, run it as an "on prem" and "edge" device showing off tech that is being built in the labs, Graal Python, Java and Oracle Linux 9 running on every device on the Pi Cluster all connected to Oracle Cloud through Site-to-Site (scroll to the bottom for directions on this) VPN for on prem and via micro-services, compute instances, Autonomous Database, Services Gateway and Load Balancer. AR visualizations would be cool and run something cool on it like when we ran SETI@home on the Raspberry Pi Mini Super Computer that is an 84 Pi Cluster. So I came up with the idea to setup a service so anyone in the world can send code to the cluster to run, we show off our Digital Twin AR/VR services and create blogs and videos to inspire developers and students while showing people why developers and students are having a lot of fun learning and using [Oracle's Free Tier](https://www.oracle.com/cloud/free/?source=:ex:tb:::::RC_WWMK220309P00059:Medium_CBensen&SC=:ex:tb:::::RC_WWMK220309P00059:Medium_CBensen&pcode=WWMK220309P00059). And get the Guiness Book world record.
+
+So Bo English-Wiczling, head of Oracle Corporate Developer Relations, choose option three and the search for a new lab started. I spoke with the leadership of the various product teams mentioned above, as well as leader's in the Raspberry Pi community like [Jeff Geerling](https://twitter.com/geerlingguy) and Eben Upton, and laid out a plan. I can't tell you about the entire plan because we've just set the foundation for it and there is a whole lot more to come and this is just the story of getting the Pi Cluster to Java One and a brief mention of what happens after. But it turns out a Guiness Book is really expensive.
+
+The first step was to identify a budget and an estimate of the work and if it is feasible. We knew we needed:
+
+1. Fans. Lots of fans.
+2. Replace any parts missing.
+3. Test everything out.
+4. Write new software. Every Pi network boots. In 2019 I had Oracle Linux 7 running on the entire cluster but did it still work, did we have all the source code, MAC addresses and everything needed to do it again. In [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO)
+
+The second step in the plan was to get a place to work on the Pi Cluster. It turned out that was very difficult. Try finding a place with double doors, close to a freight elevator, with enough power and space to work on it and a network that isn't locked down tight. I looked at Oracle facilities around the world. The logistics of working on something like this remotely and all the physical work that would have to be put into it meant anywhere in the world would work if certain requirements were met. I'd have to travel there, a couple times, set everything up and have a dozen people to help, set it up for remote access but someone would have to be available to kick it when things didn't work right. After a nice lunch with my amazing wife, we decided our garage worked the best and that's where [#BigPiClusterInMyGarage](https://twitter.com/search?q=%23BigPiClusterInMyGarage&src=typed_query) started. I had a few other hash tags but I settled on that.
+
+# Adding Fans
+
+Now that we had a place, it was delivered and I went to work making sure our estimate budget was accurate and rectifying it then testing things and ordering replacements and mostly fans. Lots of fans. 250 fans to be exact. The cluster ended up with 257 fans and that isn't counting the fans that are in each of the switches, server, or power supplies. 250 new Pi Caddies with brackets for fans had to be printed, you can find them [here](https://www.thingiverse.com/thing:3958586). The fans all needed power, and we added some easter eggs. I know it isn't much of an easter egg if I tell the world about it but I'll explain it in more detail in the Warble section below because it's too cool to not say anything.
+
+
+# Operating System
+
+I think a lot of software engineers underestimate a good operating system. And Oracle Linux is top notch. I go into more detail about the operating system in [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO) (and I have some other stuff I'm working on so you can setup network booking Pi at home) and because we had all that work to build upon we simply had to upgrade from Oracle Linux 7 to Oracle Linux 9. I'll tell you a secret, it wasn't that simple but the Oracle Linux team have been amazing to work with and really deserve all the credit for building and setting up the operating system for the Pi Cluster. Go check out [Oracle Linux 9](https://docs.oracle.com/en/operating-systems/oracle-linux/9/relnotes9.0/), it's worth using or upgrading to. The were a few hickups such as the added layer of security the root account no longer having ssh access by default. What is worth saying here about how we boot the Pi is every Pi in the cluster is network booting off a single read only nfs mount on the server and we added a systemd service to run a bash script whenever the server or Pi boots up. This makes configuring what is running super simple.
+
+
+# Software and Cloud Services
+
+All the software is open source and can be found [here](https://github.com/oracle-devrel/picluster) in our DevRel GitHub repository. There are some things that are coming from the labs and aren't available even as a tech preview yet (I tried, they just weren't ready) so those aren't included. And be warned, most of that code was written fast and messy last minute. And what you will find might not make a whole lot of sense so it's worth explaining.
+
+First, there is the software on the cluster. The server runs a Docker container which is running GraalPython. That Dockerfile is pretty ugly so I don't recommend copying it just yet. I've provided some bug reports so as soon as the Graal environment variables and CTRL+C work and maybe a new image for GraalPython is created you're good to go. But know that you can and this is how you do it in the meantime. I've been seeing about a 50% increase in performance when running Python code under GraalVM. That's pretty impressive!
+
+Every devices on the cluster runs a web service. The server broadcasts a UDP message with it's IP address and port for any device to listen to and communicate with the server for auto discovery. This is new from previous years where the server's IP address was put into an environment variable. The IP address doesn't change so we could hard code it but there were two issues: Anyone working on this needs to run a test system with their desktop and a simulation of a Pi or a couple Pi on their desk, and the second issue is environment variables are lost once you sudo. So this actually solves a lot of issues. Once a Pi boots up it runs it's web server, listens for the UDP message, registere's it's IP address and MAC address with the server and just sits back and listens for work. Every so often the server will send a ping to each Pi as a health check to make sure they are still alive and should be in the list of available Pi.
+
+Every 5 seconds each Pi sends all it's data (CPU, memory, temperature, etc) to an REST endpoint on an Autonomous Database called ORDS. The documenation can be found [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/ords-autonomous-database.html#GUID-E2E921FF-2D80-4E32-9660-28506D10BADB). I put some code in where if the Pi fail to send their data they wait a little longer the next time until they are at once a minute. It turns out to be a mountain of data which Autonomous Database handles effortlessly. Trust me, I tried a few other databases that shall not be named and well, let's just say they couldn't handle it and that delay was more than 5 seconds.
+
+
+# Digital Twin with AR/VR
+
+![The Raspberry Pi Super Computer Rendering](images/PiClusterRendering.png)
+
+I created a fairly detailed 3D model of the Pi Cluster that can be found [here](https://github.com/oracle-devrel/picluster/tree/main/models) and opened in your favorite 3D program. Our AR/VR and cloud experts Wojciech Pluta, Victor Martin, Bogdan Farca and Stuart Coggins went to work building some amazing AR and VR experiences, tuning databases, writing APEX apps, running socket.io for streaming and Kubernettes cluster called [OCI OKE](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengoverview.htm) so the 3D experiences can scale without falling over so anyone can put a Digital Twin of the Pi Cluster in their living room. We have iPads for AR and massive printed QR codes so the iPad can track the cluster with millimeter accuracy to view the going ons of the cluster interactively, oh, and they built an Occulous Quest version too. I'm not going to go into any more details because I want them to write about it. I honestly have no idea what we will have at Java One because we are working from all over the world, there wasn't enough power to run the entire cluster in my garage so we will be integrating this and testing it a few days before the doors open. It may work. It may fall over. Whatever happens it will be a good story and will be amazing, just like developers want, real stuff! I will add a link here when we have something written on AR/VR Digital Twin.
+
+
+# OCI Services
+
+In my garage the Pi Cluster is setup as an "on prem" server. I setup an isolated subnet on my Ubiquity Dream Machine Pro, configured a site-to-site VPN to OCI using a [Bastion](https://www.oracle.com/security/cloud-security/bastion/), and setup a local jump box that has two network interfaces, one for the pi cluster subnet and one for the Pi Cluster. See, the Pi Cluster appears to the outside world and one IP address. Show up, plug network power and you're good. I wish setup were that easy and I didn't have to test everything making sure cables didn't bounce out of position but, let's just say it's that easy because it sounds more fun and doesn't require days of configuring and debugging the truck ride.
+
+At Java One because we don't control the network the Pi Cluster is an "edge device". It uses cloud services such as [Services Gateway](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/servicegateway.htm) and [Load Balancer](https://docs.oracle.com/en-us/iaas/Content/Balance/Concepts/balanceoverview.htm) and [Domain Management](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/managing_your_domains.htm). Yes, we have a domain. I'll get to that in the next section.
+
+The network looks like this:
+
+![Network](images/network.png)
+
+If you have any questions about this head over to Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers. Ask any question you want. How to set it up, they got you covered. What services to use, they can answer that.
+
+
+# IoT
+
+We also have a two Arduino's running on the cluster. The first Arduino is an Arduino Mega with a Ethernet HAT. The original code can be found [here](https://github.com/oracle-devrel/picluster/tree/main/source/arduino/ServerSwitch) that runs a web service and turns on two solenoids for remote access to the physical reset and power buttons on the server. I've changed the software a little compared to what is in the repository and didn't publish it because of the internal stuff so I left this older version up. The version I haven't published registers itself and waits for a simple startup command coming when a developer SSHs into the Bastion. Hance, IoT.
+
+The second Arduino is the same hardware but runs a REST server listening for a JSON payload and is connected to a dozen [NeoPixels](https://www.adafruit.com/product/1426) put into the light at the top of the police box. I'll get to how it's controlled.
+
+## Warble
+
+We are hosting the domain [warble.withoracle.cloud](https://warble.withoracle.cloud/code
+) on OCI backed by [Domain Management](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/managing_your_domains.htm), a [Load Balancer](https://docs.oracle.com/en-us/iaas/Content/Balance/Concepts/balanceoverview.htm) and [Compute Instance](https://www.oracle.com/cloud/compute/). The compute is running the same software that is running on the Pi Cluster; A Docker Container with GraalPython with a web service. I will elaborate more on this later because it isn't quite ready for prime time but check back here or on Twitter October 18th-20th because during Java One it will be live and I think it'll be a lot of fun.
+
+What I've created is a programming language designed for Twitter to be run on the Pi Cluster called [Warble](https://github.com/oracle-devrel/picluster/tree/main/source/warble). Warble isn't a full featured programming language and I took a lot of shortcuts. It is designed to to use as few characters as possible so you can post a Warble to Twitter and have it run on the Pi Cluster. I have a Python script running on a Computer Instance using the Twitter API to search for the hash tag **#pi**. If the next character is a open curly braces and the last character is a close curly braces then we have a Warble and it's stored into a database. For Example:
+
+```
+> #pi{PRINT("hello cluster")}
+< hello cluster
+```
+
+When the server has a few spare cycles it gets a batch of Warbles from the database finds a Pi that has less than 30% CPU cycles and sends the Warble to to that Pi for processing. Warble is written in Python and converts Warbles into Python then executes them. Currently it's run with Python3 but we have a version written in GraalPython using some cutting edge tech not ready for the public, but at this exact moment research engineers Rodrigo Bruno and Serhii Ivanenko in Oracle Labs are getting it ready to run on the Pi in the cluster. It was working last week then I changed some things last minute. A bit of an oops and an optimization. So the results from the warble and posted to an Autonomous Database via a REST API that is super easy to setup, Stuart Coggins and Jeff Smith have been gracious enough to help with that and make sure it's rock solid. And we will have an [APEX](https://apex.oracle.com/en/) app that will display the Warbles and their results and I hope we can get a leader board for custom visualiations. Wouldn't it be cool to see who can calculate Pi to the most digits on the World's Largest Raspberry Pi Cluster (that we know of)?
+
+```
+> #pi{PRINT(2*ROUND(ACOS(0.0),3))}
+< 3.142
+```
+
+It's close enough.
+
+Twitter will be a lot of fun. but because Twitter is unreliable and throttles the API this is why we have the hosted domain. I will provide a REST endpoint to post Warbles. Maybe someone will figure out how to calculate Pi with [Bailey–Borwein–Plouffe_formula](https://en.wikipedia.org/wiki/Bailey–Borwein–Plouffe_formula) using Warble or one of the many other ways.
+
+I'm not going to write a syntax grammer. But I will give some examples.
+
+Warble supports variables:
+
+```
+> #pi{x=0PRINT(x)}
+< 0
+```
+
+Warble can handle complex expressions:
+
+```
+> #pi{x=1/16.0^2*(4.0/(8*k+1)-2.0/(8*k+4)-1.0/(8*k+5)-1.0/(8*k+6)}
+<
+```
+
+While loops:
+
+```
+> #pi{i=0;WHILE(i<10){PRINT(i);i++}}
+< 0
+< 1
+< 2
+< 3
+< 4
+< 5
+< 6
+< 7
+< 8
+< 9
+```
+
+For loops:
+
+```
+> #pi{FOR(i=0;i<10;i++){PRINT(i)}}
+< 0
+< 1
+< 2
+< 3
+< 4
+< 5
+< 6
+< 7
+< 8
+< 9
+```
+
+I'm exposing all the most of the math functions as well as ```SETPRECISION(x)```. It isn't short on characters but whatever.
+
+Lastly you can save values and load them again. They are user specific:
+
+```
+> #pi{SAVE("pi",1)}
+<
+```
+
+and then follow it up with a load:
+
+```
+> #pi{x=LOAD("pi");x++;SAVE("pi",x);PRINT(x)}
+< 2
+```
+
+And finally the easter eggos. Warble can play a sound. Yeah, this is another IoT device hooked up to the cluster. A Pi with an amplifier! But unfortunately you can only hear it if you are stading in front of it. Makes you want to come to Las Vegas and attend Java One, doesn't it?
+
+```
+> #pi{PLAYSOUND(\\\"http://downloads.bbc.co.uk/doctorwho/sounds/tardis.mp3\\\");}
+<
+```
+
+There are also lights. This turns the first light to red:
+
+```
+> #pi{LIGHTS(0,255,0,0)}
+<
+```
+
+If you wanted to turn the last light green you'd do this:
+
+```
+> #pi{LIGHTS(23,0,255,0)}
+<
+```
+
+If you wanted to change the color of a light with a delay between do this:
+
+```
+> #pi{LIGHTS(0,0,255,0);SLEEP(20);LIGHTS(0,0,255,0)}
+<
+```
+
+Or combine a few of these:
+
+```
+> #pi{FOR(i=0;i<24;i++){LIGHTS(i,0,255,0)}SLEEP(20);FOR(i=0;i<24;i++){LIGHTS(i,0,0,255)}}
+<
+```
+
+
+# Setting up a Site-To-Site VPN with OCI
+
+On the Ubiquity Dream Machine Pro I created one new subnet: under networks created pi
+VLAN ID: 3
+Network Type: Standard
+
+Create a Site-to-site VPN
+Network Name: pivpn
+Pre-shared Key: ***********************
+Server Address: <IP Address of Router> (default should be fine)
+Remote Gateway/Subnets: 10.0.0.0/24
+Remote IP Address: <IP Address of remote VPN>
+Advanced: Manual
+IPsec Profile: Customized
+Route Distance: 30
+Key Exchange Version: IKEv1
+Encryption: AES-256
+Hash: SHA1
+IKE DH Group: 5
+ESP DH Group: 5
+Perfect Forward Secrecy: enabled
+Dynamic Routing: enabled
+
+I created 3 firewall rules:
+
+1. pi block 192.168.3.1 (gateway)
+
+Type: LAN Local
+Action: Drop
+Source, Souce Type: Network
+Source, Network: pi
+Destination, Source Type: Network
+Destination, Network: pi
+Destination, Network Type: Gateway IP Address
+
+2. Default accept to pi
+
+Type: LAN In
+Action: Accept
+Source, Souce Type: Network
+Source, Network: Default
+Destination, Source Type: Network
+Destination, Network: pi
+
+3. pi block to Default
+
+Type: LAN Out
+Action: Drop
+Source, Souce Type: Network
+Destination, Network: pi
+Destination, Source Type: Network
+Source, Network: Default
+Advanced: Manual
+Check Match State New
+Check Match State Invalid
+
+4. In OCI go to Networking and Site-to-Site VPN
+Create IPSec Connection
+Give it a name
+You'll want this to get your public IP address
+```
+dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com
+```
+Enter it
+You'll need to create two tunnels, I setup both to point to the same VPN because well OCI rquires two and I only exposed one on my network. YOu''ll add this to the VPN.
+
+5. Setup a Dynamic Routing Gateway
+6. Setup a VCN, add an Ingress Rule with the CIDR that is your local subnet, for example mine is 192.168.3.0/24.
+
+
+# Conclusion
+
+There have been countless people that have worked on this project. People from accounting and that have helped the engineers and managers that I've mentioned. I can't possibly mention them all but I will try in [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO). But if I forget someone please don't take it personally or understimate their significants.
+
+If you have any questions about this or any other Oracle developer related question head over to Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers. Or, come to Java One and see The World's Largest Raspberry Pi Cluster (that we know of) in person!
