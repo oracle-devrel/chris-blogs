@@ -36,7 +36,7 @@ The last piece of the puzzle was what would it look like. I had started prototyp
 I was trying to get the highest density I could by cramming in at least 20 Pi into a 2U. The problem was this left us with about 50 extra Pi so it wouldn't fit. It's kind of like the rocket equation. The more Pi you have the more infastructure you need thus more space and power. At first I 3D printed a huge print where the Pi just slid into place and were held in with another print. Unfortunately my printer wouldn't print a full rack that size and if it could it took 24 hours. I tried a lot of things. That's when I got the idea to use an 18" 1"x1/2" piece of 80/20 with the end milled off by 16.35mm then tap the hols in the ends, print 21 pi caddies and two ends and that was the solution. I should backup at this point and mention that we did consider POE for all the Pi. We tried this but the POE hat was mutually exclusive because it required some firmware changes to network booting, then all the switches would have to have all POE ports, I had difficulty finding more than 16 port POE switches and the density would have been 1/2 what we were able to get.
 
 Everything was moved to the Developer Marketing Hacker Lab in June and a few people like Blaine Carter flew out to help set it up. I decided to bring in my camera and tripod and record what was going on giving the camera little attention besides to make sure it was pointed in the general direction and recording. This video would later become Pi Cluster Video on March 14th 2020. World’s Largest Raspberry Pi Cluster (that we know of)
-[![Bringing Pi Home](https://img.youtube.com/KbVcRQQ9PNw/0.jpg)](https://www.youtube.com/watch?v=KbVcRQQ9PNw&t=1s) I did record a few choice moments. At this point in time I had discovered Casey Neistat and thought his videos were interesting.
+[![Bringing Pi Home](https://img.youtube.com/vi/KbVcRQQ9PNw/0.jpg)](https://www.youtube.com/watch?v=KbVcRQQ9PNw&t=1s) I did record a few choice moments. At this point in time I had discovered Casey Neistat and thought his videos were interesting.
 
 I was trying to document everything as I went knowing full well it's nearly impossible to document after the fact. Here are the blogs from that time describing the caddies and how they came to be.
 
@@ -50,7 +50,7 @@ I was trying to document everything as I went knowing full well it's nearly impo
 
 Durring this project I started actually posting to Twitter. I took this video while heading home at midnight, edited the video with iMovie on my phone while waiting for the elevator doors to open and while walking to my car and by the time I got to my car had posted it.
 
-[![Bringing Pi Home](https://img.youtube.com/ROC2FhExiRY/0.jpg)](https://www.youtube.com/watch?v=ROC2FhExiRY&t=1s)
+[![Bringing Pi Home](https://img.youtube.com/vi/ROC2FhExiRY/0.jpg)](https://www.youtube.com/watch?v=ROC2FhExiRY&t=1s)
 
 I was actively recruiting, we still had a lot of unknowns but one of the big ones was the time it would take. If something takes 1 minute and you have 1,000 of them then that's over 16 hours. Blaine Carter and I were busy printing 1,000 caddies, the end brackets and everything else that we needed that was custom from a total of, get this, 12 3D printers. The brackets took 45 minutes. And that is after optimizations. There were months of 3D printing, but we had to be sure they were perfect. And 3D printing is amazing and can print a thing out of nowhere in a short period of time but if you need 1,000 of them it is going to take a long time. Yolande Poirier knew of some students at 42 Silicon Valley. They came by started helping, I bought them pizza offered to mentor them. They came back the next day with more students. Some students would change but a core group who I remain friends with today came day after day. We setup assembly lines for removing the Pi from their packaging, lining them up for install into caddies, then to be assembled into a 2U rack of 21 Pi. We ended up with 50 2U caddies. Actually the plan was to build two 84 Pi Mini Clusters so we made a total of 9 more for a total of 59. One was extra. Turned out we needed this one. I'll explain later.
 
@@ -79,20 +79,20 @@ I met up with the cluster at Open World London February 2020 and instead of a Ja
 
 This was the beginning of the pandemic all future events were canceled and lots of internal shuffling ensued. One big shuffle is everything was going virtual. I realized I had a lot of video footage of building the Pi Cluster and Pi Day was coming up so I spent a few days editing a video trying to tell a fun story for Pi Day. The result was this viral video.
 
-[![World’s Largest Raspberry Pi Cluster (that we know of)](https://img.youtube.com/KbVcRQQ9PNw/0.jpg)](https://www.youtube.com/watch?v=KbVcRQQ9PNw&t=1s)
+[![World’s Largest Raspberry Pi Cluster (that we know of)](https://img.youtube.com/vi/KbVcRQQ9PNw/0.jpg)](https://www.youtube.com/watch?v=KbVcRQQ9PNw&t=1s)
 
 At this point I proposed a few other virtual experiences. The most notable was the [LEGO© Race Car](https://github.com/chrisbensen/eff-uno-racer) which started the partnership between Oracle and Red Bull. But I digress. As part of the internal shuffling, there was the closing of Developer Marketing Hacker Lab. We transferred tools and items to other labs and other storage options as possible, I transferred my lab to Oracle Labs as one of their labs and left the Pi Cluster there with signs to save do not trash. We had the Santa Cruz fires the same week the lab was being cleared out and I got a call that the Pi Cluster was in e-waste. When the lab was clared out they cleared it out. Everything that wasn't nailed down. I drove into the office and pushed the Pi Cluster back into the lab but a couple switches, and two Pi 2U racks and a 60-port USB power supply had been removed. There wasn't much I could do about it or some of the other stuff that got tossed into e-waste that had "save" written on it, after all I was living out of a suitcase for a couple weeks from the fire evacuation. But the Pi Cluster sat like that for another year and a half. Fortunately it was kept company by two smaller 84 Pi Mini Clusters one of which in November of 2020 I recorded a video building the 2nd 84 Pi Mini Cluster in my garage and posted it to YouTube.
 
-[![Building a mini Pi cluster in my garage during lockdown](https://img.youtube.com/QZ9LufeXdgw/0.jpg)](https://www.youtube.com/watch?v=QZ9LufeXdgw&t=1s)
+[![Building a mini Pi cluster in my garage during lockdown](https://img.youtube.com/vi/QZ9LufeXdgw/0.jpg)](https://www.youtube.com/watch?v=QZ9LufeXdgw&t=1s)
 
 
 # 2022
 
 The Pi Cluster had come up a few times in conversation but due to the unknown state and no physical conferences it sat. Finally in February of 2022 the conversations got serious and this is when the Pi Cluster came to visit me and my family at home for the past 6 months.
 
-[![Big Pi Cluster in My Garage Part 1](https://img.youtube.com/ELvkg_88XSY/0.jpg)](https://www.youtube.com/watch?v=ELvkg_88XSY&t=1s)
-[![Big Pi Cluster in My Garage Part 2](https://img.youtube.com/ELvkg_88XSY/0.jpg)](https://www.youtube.com/watch?v=ELvkg_88XSY&t=1s)
-[![Big Pi Cluster in My Garage Part 3](https://img.youtube.com/Mpb9L9NwBZw/0.jpg)](https://www.youtube.com/watch?v=Mpb9L9NwBZw&t=1s)
+[![Big Pi Cluster in My Garage Part 1](https://img.youtube.com/vi/ELvkg_88XSY/0.jpg)](https://www.youtube.com/watch?v=ELvkg_88XSY&t=1s)
+[![Big Pi Cluster in My Garage Part 2](https://img.youtube.com/vi/ELvkg_88XSY/0.jpg)](https://www.youtube.com/watch?v=ELvkg_88XSY&t=1s)
+[![Big Pi Cluster in My Garage Part 3](https://img.youtube.com/vi/Mpb9L9NwBZw/0.jpg)](https://www.youtube.com/watch?v=Mpb9L9NwBZw&t=1s)
 
 
 I wrote about the Pi Cluster from this point forward in [The Raspberry Pi Super Computer in DevNucleaus at Cloud World 2022](TODO)
