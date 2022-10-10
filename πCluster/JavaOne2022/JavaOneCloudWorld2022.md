@@ -1,4 +1,4 @@
-# The Raspberry Pi Super Computer at Java One and Cloud World 2022
+# The Raspberry Pi Super Computer in DevNucleaus at Cloud World 2022
 
 by Chris Bensen
 
@@ -82,6 +82,8 @@ The second Arduino is the same hardware but runs a REST server listening for a J
 
 We are hosting the domain [warble.withoracle.cloud](https://warble.withoracle.cloud/code
 ) on OCI backed by [Domain Management](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/managing_your_domains.htm), a [Load Balancer](https://docs.oracle.com/en-us/iaas/Content/Balance/Concepts/balanceoverview.htm) and [Compute Instance](https://www.oracle.com/cloud/compute/). The compute is running the same software that is running on the Pi Cluster; A Docker Container with GraalPython with a web service. I will elaborate more on this later because it isn't quite ready for prime time but check back here or on Twitter October 18th-20th because during Java One it will be live and I think it'll be a lot of fun.
+
+![Warble](images/warble.png)
 
 What I've created is a programming language designed for Twitter to be run on the Pi Cluster called [Warble](https://github.com/oracle-devrel/picluster/tree/main/source/warble). Warble isn't a full featured programming language and I took a lot of shortcuts. It is designed to to use as few characters as possible so you can post a Warble to Twitter and have it run on the Pi Cluster. I have a Python script running on a Computer Instance using the Twitter API to search for the hash tag **#pi**. If the next character is a open curly braces and the last character is a close curly braces then we have a Warble and it's stored into a database. For Example:
 
@@ -275,7 +277,7 @@ You'll need to create two tunnels, I setup both to point to the same VPN because
 
 # The Future
 
-After being at the DevNucleus at Java One and Oracle Cloud World, the Pi Cluster is heading to the Oracle Labs lab to be setup for remote access by research engineers across Oracle. It will be running tests for GraalVM and Java as well as enabling future small device ARM projects for Edge Computing, Robotics and Parallel Processing like Machine Learning. This is where it gets exciting but a lot of what will be happening will be behind closed doors as skunkworks projects and not public so you might not hear about everything. I have a few other ideas and hope we can bring it out and parade it around. I suppose much of that depends on how successful it is in a few weeks in Las Vegas.
+After being in the DevNucleus at Oracle Cloud World, the Pi Cluster is heading to the Oracle Labs lab to be setup for remote access by research engineers across Oracle. It will be running tests for GraalVM and Java as well as enabling future small device ARM projects for Edge Computing, Robotics and Parallel Processing like Machine Learning. This is where it gets exciting but a lot of what will be happening will be behind closed doors as skunkworks projects and not public so you might not hear about everything. I have a few other ideas and hope we can bring it out and parade it around. I suppose much of that depends on how successful it is in a few weeks in Las Vegas.
 
 I want to thank everyone that has had a hand in the project. Read [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO) for how this crazy amazing project came to be.
 
