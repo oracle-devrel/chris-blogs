@@ -273,8 +273,10 @@ You'll need to create two tunnels, I setup both to point to the same VPN because
 6. Setup a VCN, add an Ingress Rule with the CIDR that is your local subnet, for example mine is 192.168.3.0/24.
 
 
-# Conclusion
+# The Future
 
-There have been countless people that have worked on this project. People from accounting and that have helped the engineers and managers that I've mentioned. I can't possibly mention them all but I will try in [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO). But if I forget someone please don't take it personally or understimate their significants.
+After being at the DevNucleus at Java One and Oracle Cloud World, the Pi Cluster is heading to the Oracle Labs lab to be setup for remote access by research engineers across Oracle. It will be running tests for GraalVM and Java as well as enabling future small device ARM projects for Edge Computing, Robotics and Parallel Processing like Machine Learning. This is where it gets exciting but a lot of what will be happening will be behind closed doors as skunkworks projects and not public so you might not hear about everything. I have a few other ideas and hope we can bring it out and parade it around. I suppose much of that depends on how successful it is in a few weeks in Las Vegas.
 
-If you have any questions about this or any other Oracle developer related question head over to Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers. Or, come to Java One and see The World's Largest Raspberry Pi Cluster (that we know of) in person!
+I want to thank everyone that has had a hand in the project. Read [A Temporal History of The World's Largest Raspberry Pi Cluster](TODO) for how this crazy amazing project came to be.
+
+If you have any questions about this or any other Oracle developer related question head over to Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers. Or, come to the DevNucleus at Java One and see The World's Largest Raspberry Pi Cluster (that we know of) in person!
