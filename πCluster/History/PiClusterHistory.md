@@ -77,7 +77,7 @@ Here is a [parts list for the 84 Raspberry Pi Mini Cluster](http://chrisbensen.b
 
 I met up with the cluster at Open World London February 2020 and instead of a Java community project I ran SETI@home.
 
-This was the beginning of the pandemic all future events were canceled and lots of internal shuffling ensued. One big shuffle is everything was going virtual. I realized I had a lot of video footage of building the Pi Cluster and Pi Day was coming up so I spent a few days editing a video trying to tell a fun story for Pi Day. The result was this viral video.
+This was the beginning of the pandemic all future events were canceled and lots of internal shuffling ensued. One big shuffle is everything was going virtual. I realized I had a lot of video footage of building the Pi Cluster and Pi Day was coming up so I spent a few days editing a video trying to tell a fun story for Pi Day. The result was this viral video in big part to Jim Grisanzio.
 
 [![World’s Largest Raspberry Pi Cluster (that we know of)](https://img.youtube.com/vi/KbVcRQQ9PNw/0.jpg)](https://www.youtube.com/watch?v=KbVcRQQ9PNw&t=1s)
 
