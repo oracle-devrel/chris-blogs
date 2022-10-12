@@ -31,15 +31,15 @@ The first step was to identify a budget and an estimate of the work and if it is
 
 The second step was to get a place to work on the Pi Cluster. Try finding a place with double doors, close to a freight elevator, with enough power and space to work on it and a network that isn’t locked down tight — not easy! I looked at Oracle facilities around the world. The logistics of working on something like this remotely and all the physical work that would have to be put into it meant anywhere in the world would work only if certain requirements were met. I’d have to travel there, set everything up, and have a dozen people to help. We’d set it up for remote access but someone would have to be available in person when things didn’t work right. After a nice lunch with my amazing wife, we decided our garage worked the best and that’s where [#BigPiClusterInMyGarage](https://twitter.com/search?q=%23BigPiClusterInMyGarage&src=typed_query) started.
 
-# Adding Fans
+# Adding Fans - Cooling the Raspberry Pi
 
 Once it was delivered I went to work ensuring our budget was accurate then rectifying and testing things while ordering replacements (mostly fans). Lots of fans: 250 fans to be exact. The cluster ended up with 257 fans and that isn’t counting the fans that are in each of the switches, server, or power supplies. This required that I disassemble the entire cluster and reassemble it. Not every bolt was removed, but all 50 21 Pi 2U banks were disassembled, every 5th Pi removed and replaced, which meant 250 new Pi caddies with brackets for fans had to be printed. You can learn about that [here](https://www.thingiverse.com/thing:3958586). [Victor Agreda](https://twitter.com/superpixels) used his newly purchased Ultimaker S5 to print a few dozen of the fan version of the caddies. The fans all needed power, and thanks to [Eli Schilling](https://twitter.com/ThatEliGuyatOCI) for creating many of the wiring harnesses. In addition, we added some easter eggs. I know it isn’t much of an easter egg if I tell the world about it, but I’ll explain it in more detail in the Warble section below because it’s too cool to not say anything. I have a few videos documenting some of the work that can be found in [A Temporal History of The World's Largest Raspberry Pi Cluster](https://medium.com/chrisbensen/a-temporal-history-of-the-worlds-largest-raspberry-pi-cluster-that-we-know-of-4e4b1e214bdd).
 
-# Operating System
+# Operating System - The Smartest Operating System Around
 
 I think a lot of us underestimate a good operating system when building out infrastructure and hardware. And Oracle Linux is top notch. I go into more detail about the operating system in [A Temporal History of The World's Largest Raspberry Pi Cluster](https://medium.com/chrisbensen/a-temporal-history-of-the-worlds-largest-raspberry-pi-cluster-that-we-know-of-4e4b1e214bdd) (and I have some other stuff I’m working on so you can setup network booking Pi at home) and because we had all that work to build upon we had to upgrade from Oracle Linux 7 to Oracle Linux 9. I’ll tell you a secret: it wasn’t that simple. Nevertheless, the Oracle Linux team have been amazing to work with and really deserve all the credit for setting up the operating system for the Pi Cluster. Especially Vijay Kumar. Go check out Oracle Linux 9, it’s worth using or upgrading to. There were a few hiccups, such as the added layer of security and the root account which no longer had SSH access by default. It’s worth saying here how we boot the Pi, as. Every Pi in the cluster is network booting off a single read-only nfs mount on the server and we added a ``systemd`` service to run a bash script whenever the server or Pi boots up. This makes configuring what we run almost effortless.
 
-# Software and Cloud Services
+# Software and Cloud Services - GraalVM is Fast Running on Client or in the Cloud
 
 All the software is open source and can be found [here](https://github.com/oracle-devrel/picluster) in our DevRel GitHub repository. There are some things that are coming from the labs and aren't available even as a tech preview yet (I tried, they just weren't ready) so those aren't included. Be warned, most of that code was written fast. What you will find might not make a whole lot of sense, so let me explain.
 
@@ -50,14 +50,14 @@ Every devices on the cluster runs a web service. The server broadcasts a UDP mes
 Every 5 seconds each Pi sends all it's data (CPU, memory, temperature, etc) to an REST endpoint on an Autonomous Database via the native ORDS support. The documenation can be found [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/ords-autonomous-database.html#GUID-E2E921FF-2D80-4E32-9660-28506D10BADB). I put some code in where if the Pi fail to send their data it waits a little longer the next time, scaling up to 60 seconds. It turns out to be a mountain of data which Autonomous Database handles effortlessly. Trust me, I tried a few other databases that shall not be named and well, let's just say they couldn't handle it and that delay was more than 5 seconds.
 
 
-# Digital Twin with AR/VR
+# Digital Twin with AR/VR - Visualize your Data
 
 ![The Raspberry Pi Super Computer Rendering](images/PiClusterRendering.png)
 
 I created a fairly detailed 3D model of the Pi Cluster that can be found [here](https://github.com/oracle-devrel/picluster/tree/main/models) and opened in your favorite 3D program. Our AR/VR and cloud experts [Wojciech Pluta](https://twitter.com/Vojtech_WW), [Victor Martin](https://www.linkedin.com/in/victormartindeveloper), [Bogdan Farca](https://twitter.com/bogdanfarca) and [Stuart Coggins](https://www.linkedin.com/in/sjcoggins/) went to work building some amazing AR and VR experiences, tuning databases, writing APEX apps, running socket.io for streaming and Kubernettes cluster called [OCI OKE](https://docs.oracle.com/en-us/iaas/Content/ContEng/Concepts/contengoverview.htm) so the 3D experiences can scale without falling over, which means anyone can put a Digital Twin of the Pi Cluster in their living room. We have iPads for AR and printed QR codes so the iPad can track the cluster with millimeter accuracy to view the goings-on of the cluster interactively. They also built a Meta VR version! They’ll reveal details of this soon. There wasn’t enough power to run the entire cluster in my garage so we’ll be integrating this and testing it before the doors open at CloudWorld. It may work, it may fall over. Whatever happens it will be a good story! I’ll add a link here when we have something written on AR/VR Digital Twin. But it's worth mentioning that every device is two way API enabled to not only provide Digital Twin capability, but also provide remote control and access.
 
 
-# OCI Services
+# OCI Services - At the Center of Every Project is Cloud Infrastructure
 
 In my garage the Pi Cluster is setup as an "on prem" server. I setup an isolated subnet on my Ubiquity Dream Machine Pro, configured a site-to-site VPN to OCI using a [Bastion](https://www.oracle.com/security/cloud-security/bastion/), and used a local jump box that has two network interfaces, one for the pi cluster subnet and one for the Pi Cluster. Thus, the Pi Cluster appears to the outside world as one IP address. Show up, plug network, power and you're good. I wish setup were that easy and I didn't have to test everything making sure cables didn't bounce out of position but, let's just say it's that easy because it sounds more fun.
 
@@ -70,13 +70,13 @@ The network looks like this:
 If you have any questions about this head over to Oracle's public [Slack channel](https://bit.ly/devrel_slack) for developers. Ask any question you want. How to set it up, they can answer that.
 
 
-# IoT
+# IoT - Specific Lightweight Tasks with Small Inexpensive Microcontrollers
 
 We also have a two Arduino's running on the cluster. The first Arduino is an Arduino Mega with an Ethernet HAT. The original code can be found [here](https://github.com/oracle-devrel/picluster/tree/main/source/arduino/ServerSwitch). It runs a web service and turns on two solenoids for remote access to the physical reset and power buttons on the server. I've changed the software a little compared to what is in the repository and didn't publish it yet, so I left this older version up. The version I haven't published registers itself and waits for a simple startup command coming when a developer SSHs into the Bastion.
 
 The second Arduino is the same hardware but runs a REST server listening for a JSON payload and is connected to a dozen [NeoPixels](https://www.adafruit.com/product/1426) in the light at the top of the police box.
 
-## Warble
+## Warble - A Custom Programming Language Designed for the Pi Cluster
 
 We are hosting the domain [https://warble.withoracle.cloud](https://warble.withoracle.cloud/code
 ) on OCI backed by [Domain Management](https://docs.oracle.com/en-us/iaas/Content/GSG/Concepts/managing_your_domains.htm), a [Load Balancer](https://docs.oracle.com/en-us/iaas/Content/Balance/Concepts/balanceoverview.htm) and [Compute Instance](https://www.oracle.com/cloud/compute/). The compute is running the same software that is running on the Pi Cluster; A Docker Container with GraalPython with a web service. I will elaborate more on this later because it isn't quite ready for prime time but check back here or on Twitter October 18th-20th because during Java One it will be live and I think it'll be a lot of fun.
