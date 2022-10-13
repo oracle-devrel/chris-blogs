@@ -205,7 +205,7 @@ Or combine a few of these:
 
 # Setting up a Site-To-Site VPN with OCI
 
-On the Ubiquity Dream Machine Pro, with the help of Tim Cleg, I created one new subnet. Here is an outline of the steps that were followed. I'm not going to provide specific screen captures or a video because the options on Ubiquity and Oracle Cloud will change. Instead,  here are some highlights of what you need and what to do:
+On the Ubiquity Dream Machine Pro, with the help of [Tim Clegg](https://www.linkedin.com/in/timothy-clegg), I created one new subnet. Here is an outline of the steps that were followed. I'm not going to provide specific screen captures or a video because the options on Ubiquity and Oracle Cloud will change. Instead,  here are some highlights of what you need and what to do:
 
 Under networks create a new network with a name, I choose "pi".
 VLAN ID: 3
