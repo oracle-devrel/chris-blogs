@@ -1,6 +1,6 @@
 # The Raspberry Pi Super Computer in DevNucleaus at Cloud World 2022
 
-by Chris Bensen
+by [Chris Bensen](https://twitter.com/chrisbensen)
 
 If you prefer you can read this blog post on Medium [here]().
 
