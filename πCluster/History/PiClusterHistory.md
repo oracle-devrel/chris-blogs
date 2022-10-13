@@ -1,6 +1,6 @@
 # A Temporal History of The World's Largest Raspberry Pi Cluster (that we know of)
 
-by Chris Bensen
+by [Chris Bensen](https://twitter.com/chrisbensen)
 
 If you prefer you can read this blog post on Medium [here](https://chrisbensen.medium.com/a-temporal-history-of-the-worlds-largest-raspberry-pi-cluster-that-we-know-of-4e4b1e214bdd?postPublishedType=initial).
 
